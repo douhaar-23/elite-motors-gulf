@@ -74,10 +74,10 @@
     scroll-behavior: smooth;
   }
 
-  html, body {
-    overflow-x: hidden;
-    max-width: 100vw;
+  body {
+    overflow-x: clip;
   }
+
 
   body {
     background-color: var(--color-background);
