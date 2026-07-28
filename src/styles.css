@@ -104,7 +104,8 @@
     padding-left: 2rem;
   }
 }
-}
+
+
 
 @utility gold-text {
   color: var(--gold);
