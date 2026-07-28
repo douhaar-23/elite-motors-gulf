@@ -43,15 +43,15 @@ export function CarCard({ car }: { car: Car }) {
         </div>
 
         <div className="mt-5 flex gap-2 pt-4 border-t border-border">
-          <button className="flex-1 rounded-md bg-foreground/95 px-3 py-2 text-xs font-semibold text-background hover:bg-gold transition-colors">
+          <button className="flex-1 rounded-md bg-foreground/95 px-3 py-2.5 min-h-11 text-xs font-semibold text-background hover:bg-gold transition-colors">
             عرض التفاصيل
           </button>
           <a
             href={waLink(msg)}
             target="_blank"
             rel="noopener"
-            aria-label="واتساب"
-            className="grid place-items-center rounded-md border border-border px-3 py-2 text-whatsapp hover:border-whatsapp hover:bg-whatsapp/10 transition-colors"
+            aria-label="استفسار عبر واتساب"
+            className="grid place-items-center min-h-11 min-w-11 rounded-md border border-border text-whatsapp hover:border-whatsapp hover:bg-whatsapp/10 transition-colors"
           >
             <MessageCircle className="h-4 w-4" />
           </a>

@@ -62,15 +62,26 @@ export function Header() {
               href={waLink("مرحباً، أرغب بالاستفسار عن سياراتكم.")}
               target="_blank"
               rel="noopener"
-              className="hidden sm:inline-flex items-center gap-2 rounded-md bg-gold px-4 py-2 text-sm font-semibold text-background hover:bg-gold-soft transition-colors"
+              aria-label="تواصل عبر واتساب"
+              className="hidden sm:inline-flex items-center gap-2 rounded-md bg-gold px-4 py-2 text-sm font-semibold text-background hover:bg-gold-soft transition-colors min-h-10"
             >
               <MessageCircle className="h-4 w-4" />
               واتساب
             </a>
+            <a
+              href={waLink("مرحباً، أرغب بالاستفسار عن سياراتكم.")}
+              target="_blank"
+              rel="noopener"
+              aria-label="واتساب"
+              className="sm:hidden grid place-items-center h-11 w-11 rounded-md bg-gold text-background hover:bg-gold-soft transition-colors"
+            >
+              <MessageCircle className="h-5 w-5" />
+            </a>
             <button
               onClick={() => setOpen(!open)}
-              className="lg:hidden grid place-items-center h-10 w-10 rounded-md border border-border text-foreground"
-              aria-label="القائمة"
+              className="lg:hidden grid place-items-center h-11 w-11 rounded-md border border-border text-foreground"
+              aria-label={open ? "إغلاق القائمة" : "فتح القائمة"}
+              aria-expanded={open}
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
