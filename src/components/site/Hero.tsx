@@ -24,7 +24,7 @@ export function Hero() {
           height={1080}
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-l from-background via-background/70 to-background/30 rtl:bg-gradient-to-l ltr:bg-gradient-to-r" />
+        <div className="absolute inset-0 bg-gradient-to-l ltr:bg-gradient-to-r from-background via-background/70 to-background/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
       </div>
 
