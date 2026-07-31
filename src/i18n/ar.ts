@@ -205,6 +205,6 @@ export const ar = {
     homeTitle: (name: string) => `${name} | معرض سيارات`,
     homeDesc: "تشكيلة مختارة من السيارات الجديدة والمستعملة، مع فحص فني وخيارات تمويل مرنة.",
   },
-} as const;
+};
 
 export type Dictionary = typeof ar;
