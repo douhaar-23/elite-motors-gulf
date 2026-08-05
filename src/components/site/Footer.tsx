@@ -9,7 +9,7 @@ import {
   Youtube,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-
+import Logo from "./BrandLogo";
 import {
   dealership,
   dealershipAddress,
@@ -122,7 +122,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <div className="grid h-14 w-14 place-items-center rounded-lg border border-gold/40 bg-surface shadow-[0_10px_30px_rgba(0,0,0,0.18)]">
                 <span className="gold-text text-2xl font-black">
-                  {dealership.logoLetter}
+                  <Logo size={80} variant="square" />
                 </span>
               </div>
 

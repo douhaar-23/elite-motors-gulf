@@ -4,10 +4,14 @@
  * and `src/data/vehicles.ts`.
  */
 
-export type Country = "SA" | "US";
-export type Language = "ar" | "en";
-export type Currency = "SAR" | "USD";
-export type DistanceUnit = "km" | "mi";
+
+import { showroom } from "./showroom";
+import type {
+  Country,
+  Language,
+  Currency,
+  DistanceUnit,
+} from "./types";
 
 export type DealershipConfig = {
   /** "SA" enables Arabic + RTL + SAR + km. "US" is English-only + USD + miles. */
@@ -60,40 +64,45 @@ export type DealershipConfig = {
 };
 
 export const dealership: DealershipConfig = {
-  country: "SA",
-  currency: "SAR",
-  distanceUnit: "km",
-  defaultLanguage: "ar",
-  bilingual: true,
+  country: showroom.country,
 
-  name: "إليت موتورز",
-  nameEn: "Elite Motors",
-  tagline: "وجهتك للسيارات الفاخرة في المملكة",
-  taglineEn: "Your destination for premium cars",
-  logoLetter: "E",
+currency: showroom.country === "US" ? "USD" : "SAR",
 
-  phone: "+966 55 000 0000",
-  whatsapp: "966550000000",
-  whatsappEnabled: true,
-  smsEnabled: true,
-  email: "info@elitemotors.sa",
+distanceUnit: showroom.country === "US" ? "mi" : "km",
 
-  address: "طريق الملك فهد، حي العليا، الرياض، المملكة العربية السعودية",
-  addressEn: "King Fahd Road, Al Olaya, Riyadh, Saudi Arabia",
+defaultLanguage: showroom.country === "US" ? "en" : "ar",
+
+bilingual: showroom.country !== "US",
+
+   name: showroom.nameAr,
+  nameEn: showroom.nameEn,
+
+  tagline: showroom.taglineAr,
+  taglineEn: showroom.taglineEn,
+
+  logoLetter: showroom.logoLetter,
+
+  phone: showroom.phone,
+  whatsapp: showroom.whatsapp,
+  whatsappEnabled: showroom.country !== "US",
+smsEnabled: showroom.country === "US",
+  email: showroom.email,
+
+  address: showroom.addressAr,
+  addressEn: showroom.addressEn,
   hours: "السبت - الخميس: 9:00 صباحاً - 10:00 مساءً",
   hoursEn: "Sat – Thu: 9:00 AM – 10:00 PM",
   hoursSecondary: "الجمعة: 4:00 - 10:00 مساءً",
   hoursSecondaryEn: "Friday: 4:00 PM – 10:00 PM",
-  mapsUrl: "https://maps.google.com/?q=Riyadh",
-  mapsEmbedQuery: "Riyadh",
+   mapsUrl: showroom.mapsUrl,
+  mapsEmbedQuery: showroom.mapsEmbedQuery,
 
-  social: {
-    facebook: "#",
-    instagram: "#",
-    twitter: "#",
-    youtube: "#",
+    social: {
+    instagram: showroom.instagram,
+    facebook: "",
+    twitter: "",
+    youtube: "",
   },
-
   stats: {
     yearsExperience: "10",
     carsSold: "300",

@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, MessageCircle, Phone, Languages } from "lucide-react";
 import { dealership, dealershipName, telHref, waLink } from "@/config/dealership";
 import { useI18n } from "@/i18n";
+import Logo from "./BrandLogo";
 
 export function Header() {
   const { t, lang, toggleLang } = useI18n();
@@ -35,9 +36,7 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 md:h-20 items-center justify-between gap-2">
           <Link to="/" hash="home" className="flex items-center gap-2 shrink-0">
-            <div className="grid h-10 w-10 place-items-center rounded-md border border-gold/40 bg-surface">
-              <span className="gold-text font-black text-lg">{dealership.logoLetter}</span>
-            </div>
+            <Logo size={56} variant="square" />
             <div className="leading-tight">
               <div className="text-sm font-bold text-foreground">{dealershipName(lang)}</div>
               <div className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase">

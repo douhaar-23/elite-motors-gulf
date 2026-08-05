@@ -7,8 +7,8 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
-
+import { useEffect, type CSSProperties, type ReactNode } from "react";
+import { showroom } from "@/config/showroom";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { I18nProvider } from "@/i18n";
@@ -102,12 +102,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const themeStyle = {
+    "--gold": showroom.theme.primary,
+    "--gold-soft": showroom.theme.primarySoft,
+
+    "--background": showroom.theme.background,
+    "--foreground": showroom.theme.foreground,
+
+    "--surface": showroom.theme.surface,
+    "--surface-2": showroom.theme.surface,
+
+    "--card": showroom.theme.surface,
+    "--card-foreground": showroom.theme.foreground,
+
+    "--popover": showroom.theme.surface,
+    "--popover-foreground": showroom.theme.foreground,
+
+    "--primary": showroom.theme.primary,
+    "--primary-foreground": showroom.theme.background,
+
+    "--ring": showroom.theme.primary,
+
+    "--accent": showroom.theme.surface,
+    "--accent-foreground": showroom.theme.foreground,
+  } as CSSProperties & Record<`--${string}`, string>;
+
   return (
     <html lang="ar" dir="rtl">
       <head>
         <HeadContent />
       </head>
-      <body>
+
+      <body style={themeStyle}>
         {children}
         <Scripts />
       </body>
