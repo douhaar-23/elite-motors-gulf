@@ -95,7 +95,8 @@ export function Header() {
             : "bg-background/70 backdrop-blur-sm"
         }
       `}
-    ><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
   <div className="flex h-20 items-center justify-between gap-4">
 
     {/* =========================
@@ -105,38 +106,39 @@ export function Header() {
     <div className="flex shrink-0 items-center gap-3">
       <Logo size={58} variant="square" />
 
-      <div className="hidden sm:block leading-tight">
-        <Link
-          to="/"
-          hash="home"
-          aria-label={dealershipName(lang)}
-          className="block"
-        >
-          <div className="text-sm font-bold text-foreground lg:text-base">
-            {dealershipName(lang)}
-          </div>
-
-          <div className="mt-1 text-[9px] uppercase tracking-[0.24em] text-muted-foreground">
-            {dealership.nameEn}
-          </div>
-        </Link>
-
-        <div className="mt-1 flex items-center gap-1.5 text-[10px] text-muted-foreground">
-          <span>أحمد جمال</span>
-
-          <span className="text-gold">•</span>
-
-          <a
-            href={telHref}
-            dir="ltr"
-            className="transition-colors hover:text-gold"
-          >
-            +966 57 477 7773
-          </a>
-        </div>
-      </div>
+      <div className="hidden sm:flex flex-col justify-center leading-tight">
+  <Link
+    to="/"
+    hash="home"
+    aria-label={dealershipName(lang)}
+    className="block"
+  >
+    <div className="text-sm font-bold text-foreground lg:text-base">
+      {dealershipName(lang)}
     </div>
 
+    <div className="mt-1 text-[9px] uppercase tracking-[0.24em] text-muted-foreground">
+      {dealership.nameEn}
+    </div>
+  </Link>
+
+  <div className="mt-1.5 flex items-center gap-2 text-xs font-semibold">
+    <span className="text-gold">
+      أحمد جمال
+    </span>
+
+    <span className="text-gold/70">•</span>
+
+    <a
+      href={telHref}
+      dir="ltr"
+      className="text-foreground/70 transition-colors hover:text-gold"
+    >
+      +966 57 477 7773
+    </a>
+  </div>
+</div>
+</div>
     {/* =========================
         Desktop Navigation
     ========================= */}
