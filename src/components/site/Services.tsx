@@ -1,8 +1,13 @@
-import { Car, HandCoins, Repeat, Landmark, ClipboardCheck, KeyRound } from "lucide-react";
+import {
+  Truck,
+  Gauge,
+  BadgeDollarSign,
+  ShieldCheck,
+} from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { useI18n } from "@/i18n";
 
-const icons = [Car, HandCoins, Repeat, Landmark, ClipboardCheck, KeyRound];
+const icons = [Truck, Gauge, BadgeDollarSign, ShieldCheck];
 
 export function Services() {
   const { t } = useI18n();

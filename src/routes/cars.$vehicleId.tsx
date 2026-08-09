@@ -67,11 +67,11 @@ export const Route = createFileRoute("/cars/$vehicleId")({
 function VehiclePage() {
   const { id } = Route.useLoaderData();
   const { t, lang, price, mileage } = useI18n();
-
+const currentLang = lang as "ar" | "en";
   const vehicle = getVehicle(id)!;
   const [active, setActive] = useState(0);
 
-  const name = `${vehicle.brand[lang]} ${vehicle.model[lang]} ${vehicle.year}`;
+  const name = `${vehicle.brand[currentLang]} ${vehicle.model[currentLang]} ${vehicle.year}`;
   const Back = lang === "ar" ? ArrowRight : ArrowLeft;
   const Prev = lang === "ar" ? ChevronRight : ChevronLeft;
   const Next = lang === "ar" ? ChevronLeft : ChevronRight;
@@ -277,17 +277,21 @@ function VehiclePage() {
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                   <div>
                     <p className="text-sm font-medium text-gold">
-                      {vehicle.brand[lang]}
+                      {vehicle.model[currentLang]}
                     </p>
 
                     <h1 className="mt-2 text-3xl font-black leading-tight text-foreground sm:text-4xl lg:text-5xl">
-                      {vehicle.model[lang]} {vehicle.year}
+                      {vehicle.model[currentLang]} {vehicle.year}
                     </h1>
                   </div>
 
                   <div className="text-2xl font-black gold-text sm:text-3xl">
-                    {price(vehicle.price)}
-                  </div>
+  {vehicle.price > 0
+    ? price(vehicle.price)
+    : currentLang === "ar"
+      ? "تواصل لمعرفة السعر"
+      : "Contact for price"}
+</div>
                 </div>
 
                 <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -321,7 +325,7 @@ function VehiclePage() {
                   </h2>
 
                   <p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground">
-                    {vehicle.description[lang]}
+                    {vehicle.description[currentLang]}
                   </p>
                 </section>
 
@@ -331,7 +335,7 @@ function VehiclePage() {
                   </h2>
 
                   <ul className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                    {vehicle.features[lang].map((feature) => (
+                    {vehicle.features[currentLang].map((feature) => (
                       <li
                         key={feature}
                         className="
@@ -369,16 +373,20 @@ function VehiclePage() {
                 >
                   <div className="mb-5 border-b border-white/10 pb-5">
                     <p className="text-sm text-muted-foreground">
-                      {vehicle.brand[lang]}
+                      {vehicle.brand[currentLang]}
                     </p>
 
                     <p className="mt-1 text-xl font-black text-foreground">
-                      {vehicle.model[lang]} {vehicle.year}
+                      {vehicle.model[currentLang]} {vehicle.year}
                     </p>
 
                     <p className="mt-3 text-2xl font-black gold-text">
-                      {price(vehicle.price)}
-                    </p>
+  {vehicle.price > 0
+    ? price(vehicle.price)
+    : currentLang === "ar"
+      ? "تواصل لمعرفة السعر"
+      : "Contact for price"}
+</p>
                   </div>
 
                   {dealership.whatsappEnabled && (

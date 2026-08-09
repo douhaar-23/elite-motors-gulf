@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as CarsVehicleIdRouteImport } from './routes/cars.$vehicleId'
+import { Route as DemoSlugRouteImport } from './routes/demo.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +29,44 @@ const CarsVehicleIdRoute = CarsVehicleIdRouteImport.update({
   path: '/cars/$vehicleId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DemoSlugRoute = DemoSlugRouteImport.update({
+  id: '/demo/$slug',
+  path: '/demo/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/cars/$vehicleId': typeof CarsVehicleIdRoute
+  '/demo/$slug': typeof DemoSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/cars/$vehicleId': typeof CarsVehicleIdRoute
+  '/demo/$slug': typeof DemoSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/cars/$vehicleId': typeof CarsVehicleIdRoute
+  '/demo/$slug': typeof DemoSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/cars/$vehicleId'
+  fullPaths: '/' | '/admin' | '/cars/$vehicleId' | '/demo/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/cars/$vehicleId'
-  id: '__root__' | '/' | '/admin' | '/cars/$vehicleId'
+  to: '/' | '/admin' | '/cars/$vehicleId' | '/demo/$slug'
+  id: '__root__' | '/' | '/admin' | '/cars/$vehicleId' | '/demo/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRoute
   CarsVehicleIdRoute: typeof CarsVehicleIdRoute
+  DemoSlugRoute: typeof DemoSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +92,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CarsVehicleIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/demo/$slug': {
+      id: '/demo/$slug'
+      path: '/demo/$slug'
+      fullPath: '/demo/$slug'
+      preLoaderRoute: typeof DemoSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
   CarsVehicleIdRoute: CarsVehicleIdRoute,
+  DemoSlugRoute: DemoSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

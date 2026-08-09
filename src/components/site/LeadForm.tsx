@@ -278,22 +278,7 @@ export function LeadForm({
         </Field>
       </div>
 
-      {(kind === "finance" ||
-        kind === "general") && (
-        <Field
-          label={fields.email}
-          error={errors.email}
-        >
-          <input
-            name="email"
-            type="email"
-            autoComplete="email"
-            placeholder={fields.emailPlaceholder}
-            className={inputCls}
-          />
-        </Field>
-      )}
-
+     
       {!vehicleName &&
         (kind === "general" ||
           kind === "finance") && (

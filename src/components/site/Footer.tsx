@@ -9,6 +9,7 @@ import {
   Youtube,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+
 import Logo from "./BrandLogo";
 import {
   dealership,
@@ -56,35 +57,27 @@ export function Footer() {
     lang === "ar"
       ? {
           title: "جاهز لاختيار سيارتك القادمة؟",
-          desc: "تواصل معنا اليوم وسنساعدك في العثور على السيارة المناسبة لاحتياجاتك وميزانيتك.",
+          desc: "تواصل معنا اليوم وسنساعدك في العثور على السيارة المناسبة لاحتياجاتك.",
           button: "تواصل معنا",
         }
       : {
           title: "Ready to find your next vehicle?",
-          desc: "Contact us today and let our team help you find the right vehicle for your needs and budget.",
+          desc: "Contact us today and let our team help you find the right vehicle for your needs.",
           button: "Contact us",
         };
 
-  const legal =
-    lang === "ar"
-      ? {
-          privacy: "سياسة الخصوصية",
-          terms: "شروط الاستخدام",
-          hours: "ساعات العمل",
-        }
-      : {
-          privacy: "Privacy Policy",
-          terms: "Terms of Use",
-          hours: "Working Hours",
-        };
+  const hoursLabel =
+    lang === "ar" ? "ساعات العمل" : "Working Hours";
 
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-background">
+      {/* Top line */}
       <div
         aria-hidden="true"
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/35 to-transparent"
       />
 
+      {/* Glow */}
       <div
         aria-hidden="true"
         className="absolute -bottom-40 end-0 h-96 w-96 rounded-full bg-gold/5 blur-[130px]"
@@ -95,7 +88,7 @@ export function Footer() {
         <div className="mb-14 rounded-2xl border border-white/10 bg-surface/65 px-5 py-7 shadow-[0_20px_70px_rgba(0,0,0,0.18)] backdrop-blur sm:px-7 lg:flex lg:items-center lg:justify-between lg:gap-8">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold">
-              {lang === "ar" ? "إليت موتورز" : dealership.nameEn}
+              {dealershipName(lang)}
             </p>
 
             <h2 className="mt-3 text-2xl font-black text-foreground sm:text-3xl">
@@ -110,7 +103,21 @@ export function Footer() {
           <Link
             to="/"
             hash="contact"
-            className="mt-6 inline-flex min-h-12 items-center justify-center rounded-md bg-gold px-7 py-3 text-sm font-bold text-background transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-soft hover:shadow-[0_14px_35px_rgba(198,161,91,0.2)] lg:mt-0"
+            className="
+              mt-6
+              inline-flex min-h-12
+              items-center justify-center
+              rounded-md
+              bg-gold
+              px-7 py-3
+              text-sm font-bold
+              text-background
+              transition-all duration-200
+              hover:-translate-y-0.5
+              hover:bg-gold-soft
+              hover:shadow-[0_14px_35px_rgba(198,161,91,0.2)]
+              lg:mt-0
+            "
           >
             {footerCta.button}
           </Link>
@@ -121,9 +128,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
               <div className="grid h-14 w-14 place-items-center rounded-lg border border-gold/40 bg-surface shadow-[0_10px_30px_rgba(0,0,0,0.18)]">
-                <span className="gold-text text-2xl font-black">
-                  <Logo size={80} variant="square" />
-                </span>
+                <Logo size={80} variant="square" />
               </div>
 
               <div className="leading-tight">
@@ -150,7 +155,24 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="grid h-11 w-11 place-items-center rounded-md border border-white/10 bg-surface/60 text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-gold/50 hover:bg-gold/10 hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    className="
+                      grid h-11 w-11
+                      place-items-center
+                      rounded-md
+                      border border-white/10
+                      bg-surface/60
+                      text-muted-foreground
+                      transition-all duration-200
+                      hover:-translate-y-0.5
+                      hover:border-gold/50
+                      hover:bg-gold/10
+                      hover:text-gold
+                      focus-visible:outline-none
+                      focus-visible:ring-2
+                      focus-visible:ring-gold
+                      focus-visible:ring-offset-2
+                      focus-visible:ring-offset-background
+                    "
                   >
                     <Icon className="h-4 w-4" />
                   </a>
@@ -192,6 +214,7 @@ export function Footer() {
             <div className="mt-3 h-px w-10 bg-gold/50" />
 
             <ul className="mt-5 space-y-4 text-sm text-muted-foreground">
+              {/* Phone */}
               <li>
                 <a
                   href={telHref}
@@ -206,27 +229,36 @@ export function Footer() {
                 </a>
               </li>
 
-              <li>
-                <a
-                  href={`mailto:${dealership.email}`}
-                  className="flex items-start gap-3 transition-colors hover:text-gold"
-                >
-                  <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-md border border-white/10 bg-surface/60 text-gold">
-                    <Mail className="h-4 w-4" />
-                  </span>
+              {/* Email only when available */}
+              {dealership.email.trim() !== "" && (
+                <li>
+                  <a
+                    href={`mailto:${dealership.email}`}
+                    className="flex items-start gap-3 transition-colors hover:text-gold"
+                  >
+                    <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-md border border-white/10 bg-surface/60 text-gold">
+                      <Mail className="h-4 w-4" />
+                    </span>
 
-                  <span className="break-all">{dealership.email}</span>
-                </a>
-              </li>
+                    <span className="break-all">
+                      {dealership.email}
+                    </span>
+                  </a>
+                </li>
+              )}
 
+              {/* Address */}
               <li className="flex items-start gap-3">
                 <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-md border border-white/10 bg-surface/60 text-gold">
                   <MapPin className="h-4 w-4" />
                 </span>
 
-                <span className="leading-6">{dealershipAddress(lang)}</span>
+                <span className="leading-6">
+                  {dealershipAddress(lang)}
+                </span>
               </li>
 
+              {/* Hours */}
               <li className="flex items-start gap-3">
                 <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-md border border-white/10 bg-surface/60 text-gold">
                   <Clock3 className="h-4 w-4" />
@@ -234,11 +266,13 @@ export function Footer() {
 
                 <div>
                   <p className="font-medium text-foreground/85">
-                    {legal.hours}
+                    {hoursLabel}
                   </p>
 
                   <p className="mt-1 leading-6">
-                    {lang === "ar" ? dealership.hours : dealership.hoursEn}
+                    {lang === "ar"
+                      ? dealership.hours
+                      : dealership.hoursEn}
                   </p>
 
                   {dealership.hoursSecondary && (
@@ -262,17 +296,7 @@ export function Footer() {
               {t.footer.rights}
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] text-muted-foreground/70 lg:justify-end">
-              <a href="#" className="transition-colors hover:text-gold">
-                {legal.privacy}
-              </a>
-
-              <a href="#" className="transition-colors hover:text-gold">
-                {legal.terms}
-              </a>
-
-              <span className="hidden h-3 w-px bg-white/10 sm:block" />
-
+            <div className="text-[11px] text-muted-foreground/70">
               <span>{t.footer.disclaimer}</span>
             </div>
           </div>

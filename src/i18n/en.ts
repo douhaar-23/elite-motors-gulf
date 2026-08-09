@@ -34,25 +34,25 @@ export const en: Dictionary = {
   },
 
   hero: {
-    badge: "Hand-picked vehicles",
-    titleLine1: "Your next car",
-    titleLine2: "starts here",
-    desc: "A curated selection of new and pre-owned vehicles at competitive prices, backed by service you can rely on.",
-    browse: "Browse inventory",
-    contact: "Contact us",
-    imageAlt: "Luxury car",
-    stats: {
-      carsSold: "Cars delivered",
-      years: "Years in business",
-      customers: "Happy customers",
-      brands: "Brands offered",
-    },
+  badge: "Warid Al Tamayoz Motors",
+  titleLine1: "Your next car",
+  titleLine2: "starts here",
+  desc: "Explore a diverse selection of new vehicles with recent model years and Saudi or GCC specifications, and contact us directly for pricing and availability.",
+  browse: "Browse inventory",
+  contact: "Contact us",
+  imageAlt: "Warid Al Tamayoz Motors",
+  stats: {
+    carsSold: "Cars delivered",
+    years: "Years in business",
+    customers: "Happy customers",
+    brands: "Brands offered",
   },
+},
 
   cars: {
     eyebrow: "Featured inventory",
-    title: "A carefully curated lineup",
-    desc: "Browse our latest new and pre-owned vehicles from the world's leading brands.",
+    title: "A diverse selection of vehicles",
+desc: "Browse our latest new vehicles from leading automotive brands.",
     noResults: "No vehicles match your search. Try adjusting the filters.",
     resultsCount: "vehicles available",
     condition: { new: "New", used: "Pre-owned" },
@@ -89,43 +89,65 @@ export const en: Dictionary = {
   },
 
   whyUs: {
-    eyebrow: "Why us",
-    title: "Why choose us",
-    desc: "We hold ourselves to high standards so buying your next car is straightforward.",
-    items: [
-      { title: "Hand-picked vehicles", desc: "Every vehicle is selected against strict quality criteria before listing." },
-      { title: "Pre-sale inspection", desc: "A thorough mechanical inspection so you can buy with confidence." },
-      { title: "Flexible financing", desc: "We help you find financing options that fit your budget." },
-      { title: "After-sales support", desc: "Ongoing support that makes ownership worry-free." },
-    ],
-  },
+  eyebrow: "Why Warid Al Tamayoz",
+  title: "More choice, easier buying",
+  desc: "We offer a diverse selection of new vehicles across different brands and specifications to help you find the right option.",
+  items: [
+    {
+      title: "Wide vehicle selection",
+      desc: "Multiple brands and vehicle categories to suit different needs.",
+    },
+    {
+      title: "Brand-new vehicles",
+      desc: "A selection of new vehicles with recent model years and zero mileage.",
+    },
+    {
+      title: "Saudi & GCC specifications",
+      desc: "Options with Saudi and GCC specifications depending on availability.",
+    },
+    {
+      title: "Direct and fast contact",
+      desc: "Contact us directly for vehicle details, pricing, and availability.",
+    },
+  ],
+},
 
   services: {
-    eyebrow: "Our services",
-    title: "Everything under one roof",
-    desc: "From buying and selling to financing and appraisals, we cover the whole journey.",
-    items: [
-      { title: "Vehicle sales", desc: "A wide selection of new and pre-owned vehicles." },
-      { title: "We buy cars", desc: "Get a competitive offer for your current vehicle." },
-      { title: "Trade-in", desc: "Trade your current car toward your next one." },
-      { title: "Financing", desc: "Flexible financing options through trusted partners." },
-      { title: "Free appraisal", desc: "A professional, no-obligation valuation of your car." },
-      { title: "Test drive booking", desc: "Schedule a time to experience the car yourself." },
-    ],
-  },
+  eyebrow: "Our services",
+  title: "Services designed for your convenience",
+  desc: "A smoother buying experience from choosing your vehicle to receiving it wherever you are in Saudi Arabia.",
+  items: [
+    {
+      title: "Shipping across Saudi Arabia",
+      desc: "Vehicle shipping is available to different regions of the Kingdom with special rates and discounts.",
+    },
+    {
+      title: "Fast processing and delivery",
+      desc: "We aim to complete the procedures and deliver your vehicle as quickly as possible.",
+    },
+    {
+      title: "Competitive pricing",
+      desc: "A diverse selection of vehicles offered at competitive prices across the Saudi market.",
+    },
+    {
+      title: "Post-purchase benefits",
+      desc: "Vehicle purchases include a SUN GARD service voucher covering thermal insulation, washing, waxing, and interior protection.",
+    },
+  ],
+},
 
   about: {
-    eyebrow: "About us",
-    titlePrefix: "More than",
-    titleSuffix: "in the automotive business",
-    titleFallback: "Passionate about cars, serious about service",
-    yearsWord: "years",
-    p1: "We built this dealership to be a trusted destination for drivers looking for premium vehicles, combining experience and professionalism into a comfortable buying experience.",
-    p2: "Choosing a car is more than a transaction — it reflects how you live. That's why we offer a curated range of new and pre-owned vehicles, each inspected before it is listed.",
-    p3: "Our team is ready to walk you through every step, from choosing the right vehicle to life after delivery.",
-    imageAlt: "Our showroom",
-    badgeLabel: "Quality commitment",
-  },
+  eyebrow: "About us",
+  titlePrefix: "Warid Al Tamayoz",
+  titleSuffix: "Motors",
+  titleFallback: "Warid Al Tamayoz Motors",
+  yearsWord: "years",
+  p1: "Warid Al Tamayoz Motors is a Riyadh-based car dealership offering a diverse selection of new vehicles across different models and categories.",
+  p2: "We provide multiple Saudi and GCC specification options to help customers find a vehicle that suits their needs.",
+  p3: "Browse the available vehicles and contact us directly for pricing, specifications, and availability.",
+  imageAlt: "Warid Al Tamayoz Motors showroom",
+  badgeLabel: "Wide selection",
+},
 
   testimonials: {
     eyebrow: "Customer feedback",
@@ -203,8 +225,8 @@ export const en: Dictionary = {
     disclaimer: "Photos and specifications are for illustration and may differ from the actual vehicle.",
   },
 
-  seo: {
-    homeTitle: (name: string) => `${name} | Car Dealership`,
-    homeDesc: "A curated selection of new and pre-owned vehicles, each inspected, with flexible financing options.",
-  },
+ seo: {
+  homeTitle: (name: string) => `${name} | Car Dealership in Riyadh`,
+  homeDesc: "Browse new vehicles with Saudi and GCC specifications and contact Warid Al Tamayoz Motors directly for pricing and availability.",
+},
 };

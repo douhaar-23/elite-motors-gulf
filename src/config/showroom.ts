@@ -2,40 +2,36 @@
  * بيانات المعرض القابلة للتخصيص.
  * عدلي هذا الملف فقط عند تجهيز نسخة لمعرض جديد.
  */
-import type { Country } from "./types";
-
 
 export const showroom = {
-  nameAr: "رتوة للسيارات",
-  nameEn: "Ratwah Motors",
-  country: "SA" as Country,
+  nameAr: "معرض وارد التميز للسيارات",
+  nameEn: "Warid Al Tamayoz",
 
   taglineAr: "سيارات مختارة بعناية",
-  taglineEn: "Carefully selected vehicles",
+  taglineEn: "Carefully Selected Vehicles",
+logoSquare: "/demos/ratwah/logo-square.png",
+logoHorizontal: "/demos/ratwah/logo-horizontal.png",
   
+  logoLetter: "و",
 
-  logoSquare: "/logo-square.jpg",
-logoHorizontal: "/logo-horizontal.jpg",
-  logoLetter: "R",
+  phone: "+966574777773",
+  whatsapp: "966574777773",
+  email: "",
 
-  phone: "+966544888419",
-  whatsapp: "966544888419",
-  email: "info@ratwah.net",
+  addressAr: "شارع سليمان بن ثمامة، حي المروة، الرياض 33881، المملكة العربية السعودية",
+  addressEn: "Suleiman Ibn Thoumamah, Al Marwah, Riyadh 33881, Saudi Arabia",
 
-  addressAr: "الرياض، المملكة العربية السعودية",
-  addressEn: "Riyadh, Saudi Arabia",
-
-  instagram: "https://instagram.com/ratwah",
+  instagram: "",
   website: "",
 
-  mapsUrl: "https://maps.app.goo.gl/fWHom1K4uLD1Vxmx5",
-  mapsEmbedQuery: "رتوة للسيارات، الرياض",
+  mapsUrl: "https://maps.app.goo.gl/NKkqxTCihe9DvUuE9",
+  mapsEmbedQuery: "معرض وارد التميز للسيارات",
 
   theme: {
-    primary: "#dd2222",
-    primarySoft: "#ff2424",
-    background: "#08090B",
-    surface: "#111316",
-    foreground: "#F7F7F7",
+    primary: "#D4AF37",
+    primarySoft: "#F5C84C",
+    background: "#0A0A0A",
+    surface: "#151515",
+    foreground: "#FFFFFF",
   },
 };

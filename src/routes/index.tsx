@@ -6,32 +6,42 @@ import { FiltersSection } from "@/components/site/FiltersSection";
 import { WhyUs } from "@/components/site/WhyUs";
 import { Services } from "@/components/site/Services";
 import { About } from "@/components/site/About";
-import { Testimonials } from "@/components/site/Testimonials";
+
 import { CTA } from "@/components/site/CTA";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 
 export const Route = createFileRoute("/")({
-  component: Index,
-  head: () => ({
-    meta: [
-      { title: "إليت موتورز | معرض السيارات الفاخرة في السعودية" },
-      {
-        name: "description",
-        content:
-          "إليت موتورز - وجهتك الأولى للسيارات الفاخرة الجديدة والمستعملة في المملكة العربية السعودية. تشكيلة مختارة، فحص شامل، وخيارات تمويل مرنة.",
-      },
-      { property: "og:title", content: "إليت موتورز | السيارات الفاخرة" },
-      {
-        property: "og:description",
-        content:
-          "مجموعة مختارة من أفخم السيارات الجديدة والمستعملة بأسعار تنافسية.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  component: Index,head: () => ({
+  meta: [
+    {
+      title: "معرض وارد التميز للسيارات | الرياض",
+    },
+    {
+      name: "description",
+      content:
+        "معرض وارد التميز للسيارات في الرياض. تشكيلة من السيارات الجديدة بمواصفات سعودية وخليجية مع خيارات متعددة وخدمة تواصل مباشرة.",
+    },
+    {
+      property: "og:title",
+      content: "معرض وارد التميز للسيارات",
+    },
+    {
+      property: "og:description",
+      content:
+        "استعرض سيارات معرض وارد التميز وتواصل مباشرة للاستفسار عن الأسعار والتوفر.",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+  ],
+}),
 });
 
 function Index() {
@@ -45,7 +55,7 @@ function Index() {
         <WhyUs />
         <Services />
         <About />
-        <Testimonials />
+        
         <CTA />
         <Contact />
       </main>
