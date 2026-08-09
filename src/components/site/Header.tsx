@@ -106,7 +106,7 @@ export function Header() {
     <div className="flex shrink-0 items-center gap-3">
       <Logo size={58} variant="square" />
 
-      <div className="hidden sm:flex flex-col justify-center leading-tight">
+      <div className="flex flex-col justify-center leading-tight">
   <Link
     to="/"
     hash="home"
