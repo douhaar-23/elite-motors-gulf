@@ -95,48 +95,51 @@ export function Header() {
             : "bg-background/70 backdrop-blur-sm"
         }
       `}
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between gap-4">
+    ><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <div className="flex h-20 items-center justify-between gap-4">
 
-          {/* =========================
-              Logo
-          ========================= */}
+    {/* =========================
+        Logo
+    ========================= */}
 
-         <div className="flex shrink-0 items-center gap-3">
-  <Link
-    to="/"
-    hash="home"
-    className="flex shrink-0 items-center gap-3"
-    aria-label={dealershipName(lang)}
-  >
-    <Logo size={58} variant="square" />
+    <div className="flex shrink-0 items-center gap-3">
+      <Logo size={58} variant="square" />
 
-    <div className="hidden sm:block leading-tight">
-      <div className="text-sm font-bold text-foreground lg:text-base">
-        {dealershipName(lang)}
-      </div>
-
-      <div className="mt-1 text-[9px] uppercase tracking-[0.24em] text-muted-foreground">
-        {dealership.nameEn}
-      </div>
-
-      <div className="mt-1 flex items-center gap-1.5 text-[10px] text-muted-foreground">
-        <span>أحمد جمال</span>
-        <span className="text-gold">•</span>
-
-        <a
-          href={telHref}
-          onClick={(e) => e.stopPropagation()}
-          className="transition-colors hover:text-gold"
-          dir="ltr"
+      <div className="hidden sm:block leading-tight">
+        <Link
+          to="/"
+          hash="home"
+          aria-label={dealershipName(lang)}
+          className="block"
         >
-          +966 57 477 7773
-        </a>
+          <div className="text-sm font-bold text-foreground lg:text-base">
+            {dealershipName(lang)}
+          </div>
+
+          <div className="mt-1 text-[9px] uppercase tracking-[0.24em] text-muted-foreground">
+            {dealership.nameEn}
+          </div>
+        </Link>
+
+        <div className="mt-1 flex items-center gap-1.5 text-[10px] text-muted-foreground">
+          <span>أحمد جمال</span>
+
+          <span className="text-gold">•</span>
+
+          <a
+            href={telHref}
+            dir="ltr"
+            className="transition-colors hover:text-gold"
+          >
+            +966 57 477 7773
+          </a>
+        </div>
       </div>
     </div>
-  </Link>
-</div>
+
+    {/* =========================
+        Desktop Navigation
+    ========================= */}
 
           {/* =========================
               Desktop Navigation
