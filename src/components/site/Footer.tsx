@@ -215,19 +215,27 @@ export function Footer() {
 
             <ul className="mt-5 space-y-4 text-sm text-muted-foreground">
               {/* Phone */}
-              <li>
-                <a
-                  href={telHref}
-                  dir="ltr"
-                  className="flex items-start gap-3 transition-colors hover:text-gold"
-                >
-                  <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-md border border-white/10 bg-surface/60 text-gold">
-                    <Phone className="h-4 w-4" />
-                  </span>
+             {/* Contact Person + Phone */}
+<li>
+  <a
+    href={telHref}
+    className="flex items-start gap-3 transition-colors hover:text-gold"
+  >
+    <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-md border border-white/10 bg-surface/60 text-gold">
+      <Phone className="h-4 w-4" />
+    </span>
 
-                  <span>{dealership.phone}</span>
-                </a>
-              </li>
+    <div>
+      <p className="font-bold text-foreground">
+        أحمد جمال
+      </p>
+
+      <p className="mt-1" dir="ltr">
+        {dealership.phone}
+      </p>
+    </div>
+  </a>
+</li>
 
               {/* Email only when available */}
               {dealership.email.trim() !== "" && (
