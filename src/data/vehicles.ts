@@ -1,166 +1,92 @@
-import carMercedes from "@/assets/car-mercedes.jpg";
-import carBmw from "@/assets/car-bmw.jpg";
-import carLandcruiser from "@/assets/car-landcruiser.jpg";
-import carLexus from "@/assets/car-lexus.jpg";
-import carSonata from "@/assets/car-sonata.jpg";
-import carTerritory from "@/assets/car-territory.jpg";
-import heroCar from "@/assets/hero-car.jpg";
+/* =========================================================
+   VEHICLES DATA
+   معرض القلعة للسيارات - قطر
+========================================================= */
 
-export type Bilingual = { ar: string; en: string };
+export type Bilingual = {
+  ar: string;
+  en: string;
+};
 
 export type VehicleCondition = "new" | "used";
-export type VehicleTransmission = "automatic" | "manual";
-export type VehicleFuel = "petrol" | "diesel" | "hybrid" | "electric";
+
+export type VehicleTransmission =
+  | "automatic"
+  | "manual";
+
+export type VehicleFuel =
+  | "petrol"
+  | "diesel"
+  | "hybrid"
+  | "electric";
 
 export type VehicleBodyType =
   | "sedan"
   | "suv"
   | "coupe"
   | "pickup";
+
+
+/* =========================================================
+   VEHICLE TYPE
+========================================================= */
+
 export type Vehicle = {
   id: string;
+
   brand: Bilingual;
+
   model: Bilingual;
+
   bodyType: VehicleBodyType;
+
   year: number;
-  /** Always stored in kilometers; formatters convert to miles when needed. */
+
+  /**
+   * Always stored in kilometers.
+   * Formatters convert to miles when needed.
+   */
   mileage: number;
-  /** Stored in the currency configured in `src/config/dealership.ts`. */
+
+  /**
+   * Stored in the currency configured
+   * in src/config/dealership.ts
+   *
+   * For Al Qalaa Car Showroom = QAR
+   *
+   * Use 0 when price is not publicly listed.
+   */
   price: number;
+
   condition: VehicleCondition;
+
   transmission: VehicleTransmission;
+
   fuel: VehicleFuel;
+
   description: Bilingual;
-  features: { ar: string[]; en: string[] };
+
+  features: {
+    ar: string[];
+    en: string[];
+  };
+
   images: string[];
 };
 
+
+/* =========================================================
+   VEHICLES
+========================================================= */
+
 export const vehicles: Vehicle[] = [
- {
-  id: "toyota-rav4-2025-standard-saudi",
-  brand: {
-    ar: "تويوتا",
-    en: "Toyota",
-  },
-  model: {
-  ar: "راف فور ستاندر دبل سعودي",
-  en: "RAV4 Standard AWD Saudi",
-},
-  bodyType: "suv",
-  year: 2025,
-  mileage: 0,
-  price: 0,
-  condition: "new",
-  transmission: "automatic",
-  fuel: "petrol",
 
-  description: {
-    ar: "تويوتا راف فور 2025 ستاندر سعودي، بنزين، عداد أصفار، بمحرك 2.0 لتر وناقل حركة CVT، مع مجموعة تجهيزات عملية وأنظمة أمان مناسبة للاستخدام اليومي.",
-    en: "2025 Toyota RAV4 Standard Saudi specification, petrol, zero mileage, powered by a 2.0L engine with CVT transmission and equipped with practical comfort and safety features.",
-  },
-
-  features: {
-    ar: [
-      "محرك 2000 سي سي",
-      "4 سلندر بنزين",
-      "ناقل حركة CVT",
-      "جنوط 17 إنش",
-      "أنوار LED أمامية",
-      "أنوار LED نهارية",
-      "إشارات بالمرايا",
-      "حساسات أمامية",
-      "حساسات خلفية",
-      "جناح خلفي",
-      "كشاف ضباب خلفي",
-      "عدد 2 شكمان",
-      "ريموت",
-      "مقاعد قماش",
-      "زجاج كهربائي أوتو",
-      "مرايا كهربائية",
-      "سنترلوك",
-      "تحكم بالنظام الصوتي من المقود",
-      "مثبت سرعة",
-      "جلنط كهربائي مع Auto Hold",
-      "عداد رحلات",
-      "شاشة معلومات",
-      "كاميرا خلفية",
-      "منفذ USB",
-      "منفذ طاقة",
-      "فتحات تكييف خلفية",
-      "تكاية وسط مع درج",
-      "منفذ طاقة خلفي",
-      "تكاية خلفية",
-      "فرامل ABS",
-      "نظام الثبات الإلكتروني",
-      "حساس ضغط الإطارات",
-      "وسائد هوائية أمامية وجانبية",
-      "الوكيل سعودي",
-      "اللون المتوفر: فضي",
-    ],
-
-    en: [
-      "2.0L engine",
-      "4-cylinder petrol",
-      "CVT transmission",
-      "17-inch wheels",
-      "LED headlights",
-      "LED daytime running lights",
-      "Mirror indicators",
-      "Front parking sensors",
-      "Rear parking sensors",
-      "Rear spoiler",
-      "Rear fog lamp",
-      "Dual exhaust tips",
-      "Remote key",
-      "Cloth seats",
-      "One-touch power windows",
-      "Power mirrors",
-      "Central locking",
-      "Steering wheel audio controls",
-      "Cruise control",
-      "Electronic parking brake with Auto Hold",
-      "Trip computer",
-      "Information display",
-      "Rear camera",
-      "USB port",
-      "Power outlet",
-      "Rear air vents",
-      "Front center armrest with storage",
-      "Rear power outlet",
-      "Rear armrest",
-      "ABS brakes",
-      "Electronic stability control",
-      "Tire pressure monitoring",
-      "Front and side airbags",
-      "Saudi specification",
-      "Available color: Silver",
-    ],
-  },
-
-  images: [
-    "/cars/toyota-rav4-2025/1.webp",
-    "/cars/toyota-rav4-2025/2.webp",
-    "/cars/toyota-rav4-2025/3.webp",
-    "/cars/toyota-rav4-2025/4.webp",
-    "/cars/toyota-rav4-2025/5.webp",
-    "/cars/toyota-rav4-2025/6.webp",
-    "/cars/toyota-rav4-2025/7.webp",
-    "/cars/toyota-rav4-2025/8.webp",
-    "/cars/toyota-rav4-2025/9.webp",
-    "/cars/toyota-rav4-2025/10.webp",
-    "/cars/toyota-rav4-2025/11.webp",
-    "/cars/toyota-rav4-2025/12.webp",
-    "/cars/toyota-rav4-2025/13.webp",
-    "/cars/toyota-rav4-2025/14.webp",
-    "/cars/toyota-rav4-2025/15.webp",
-    "/cars/toyota-rav4-2025/16.webp",
-    "/cars/toyota-rav4-2025/17.webp",
-   
-    
-  ],
-},
-  {
-  id: "toyota-land-cruiser-gxr-2026-l2-gcc",
+  /* =======================================================
+     01 — Toyota Land Cruiser GXR V8
+     CarSemsar Ad: 204450
+     ======================================================= */
+{
+  id: "toyota-land-cruiser-gxr-twin-turbo-2022-204143",
 
   brand: {
     ar: "تويوتا",
@@ -168,1983 +94,116 @@ export const vehicles: Vehicle[] = [
   },
 
   model: {
-    ar: "لاند كروزر GXR L2 خليجي",
-    en: "Land Cruiser GXR L2 GCC",
+    ar: "لاند كروزر GXR توين تيربو",
+    en: "Land Cruiser GXR Twin Turbo",
   },
 
   bodyType: "suv",
 
-  year: 2026,
+  year: 2022,
 
-  mileage: 0,
+  mileage: 93000,
 
-  price: 0,
-
-  condition: "new",
-
-  transmission: "automatic",
-
-  fuel: "petrol",
-
-  description: {
-    ar: "تويوتا لاند كروزر GXR L2 موديل 2026 خليجي، جديد ببطاقة جمركية وعداد أصفار، بمحرك 6 سلندر سعة 4.0 لتر تنفس طبيعي بقوة 271 حصان، مع تجهيزات متكاملة للراحة والقيادة.",
-    en: "2026 Toyota Land Cruiser GXR L2 GCC specification, brand new with customs card and zero mileage. Powered by a naturally aspirated 4.0L 6-cylinder petrol engine producing 271 hp, with a comprehensive range of comfort and driving features.",
-  },
-
-  features: {
-    ar: [
-      "محرك 6 سلندر",
-      "سعة المحرك 4.0 لتر",
-      "تنفس طبيعي",
-      "قوة 271 حصان",
-      "بطاقة جمركية",
-      "عداد أصفار",
-      "نظام زحف",
-      "دفلك",
-      "فتحة سقف",
-      "تشغيل بالبصمة",
-      "دخول ذكي للأبواب الأمامية",
-      "ثلاجة",
-      "كاميرا خلفية",
-      "شاشة تدعم Apple CarPlay",
-      "مقاعد كهربائية",
-      "مقاعد مخمل",
-      "مثبت سرعة",
-      "تحكم بالمقود",
-      "حساسات أمامية وخلفية",
-      "جناح خلفي",
-      "خط جانبي بتصميم GXR",
-      "شبك أمامي نيكل كروم",
-      "هوك خلفي",
-      "مصابيح ضباب أمامية وخلفية",
-      "تحكم يدوي بمستوى المصابيح الأمامية",
-      "كتابة Land Cruiser على الأبواب",
-      "دعامة أمامية",
-      "عدد 2 كشاف",
-      "جنوط كروم 18 إنش",
-      "أزياق كروم على الأبواب",
-      "مكيف مركزي",
-      "وسائد هوائية أمامية وجانبية",
-      "نظام ECO لتوفير الوقود",
-      "زجاج كهربائي",
-      "5 أحزمة أمان",
-      "شنطة يدوية",
-      "خليجي",
-     "الألوان المتوفرة: أسود، أبيض",
-    ],
-
-    en: [
-      "6-cylinder engine",
-      "4.0L engine",
-      "Naturally aspirated",
-      "271 hp",
-      "Customs card",
-      "Zero mileage",
-      "Crawl Control",
-      "Differential lock",
-      "Sunroof",
-      "Push-button start",
-      "Smart entry for front doors",
-      "Cool box",
-      "Rear camera",
-      "Apple CarPlay compatible display",
-      "Power seats",
-      "Velour seats",
-      "Cruise control",
-      "Steering wheel controls",
-      "Front and rear parking sensors",
-      "Rear spoiler",
-      "GXR side graphics",
-      "Chrome front grille",
-      "Rear tow hook",
-      "Front and rear fog lights",
-      "Manual headlight leveling",
-      "Land Cruiser door lettering",
-      "Front guard",
-      "Dual auxiliary lights",
-      "18-inch chrome wheels",
-      "Chrome door moldings",
-      "Central air conditioning",
-      "Front and side airbags",
-      "ECO fuel-saving mode",
-      "Power windows",
-      "5 seat belts",
-      "Manual tailgate",
-      "GCC specification",
-      "Available colors: Black, White",
-    ],
-  },
-
-  images: [
-    "/cars/toyota-land-cruiser-gxr-2026-l2/1.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/2.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/3.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/4.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/5.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/6.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/7.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/8.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/9.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/10.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/11.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/12.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/13.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/14.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/15.webp",
-    "/cars/toyota-land-cruiser-gxr-2026-l2/16.webp",
-     "/cars/toyota-land-cruiser-gxr-2026-l2/17.webp",
-  ],
-},
-  {
-  id: "nissan-patrol-platinum-2026-twin-turbo-gcc",
-
-  brand: {
-    ar: "نيسان",
-    en: "Nissan",
-  },
-
-  model: {
-    ar: "باترول بلاتينيوم تيربو خليجي",
-    en: "Patrol Platinum Twin Turbo GCC",
-  },
-
-  bodyType: "suv",
-
-  year: 2026,
-
-  mileage: 0,
-
-  price: 351000,
-
-  condition: "new",
-
-  transmission: "automatic",
-
-  fuel: "petrol",
-
-  description: {
-    ar: "نيسان باترول بلاتينيوم 2026 خليجي، جديد ببطاقة جمركية وعداد أصفار، بمحرك V6 توين تيربو سعة 3.5 لتر وناقل حركة أوتوماتيكي 9 سرعات، مع دفع رباعي وتجهيزات بلاتينيوم متقدمة.",
-    en: "2026 Nissan Patrol Platinum GCC specification, brand new with customs card and zero mileage. Powered by a 3.5L twin-turbo V6 engine paired with a 9-speed automatic transmission, four-wheel drive and premium Platinum equipment.",
-  },
-
-  features: {
-    ar: [
-      "محرك V6 توين تيربو سعة 3.5 لتر",
-      "ناقل حركة أوتوماتيكي 9 سرعات",
-      "دفع رباعي مستمر",
-      "دبل خفيف ودبل ثقيل",
-      "دفلوك",
-      "نظام تعليق هوائي",
-      "نظام هيدروليك",
-      "جنوط ألمنيوم 22 إنش",
-      "بروجكتر",
-      "كاميرا مخفية ضمن غطاء المحرك",
-      "ذاكرة للمقعد",
-      "شعاع قيادة متكيف",
-      "نظام عرض محيطي ثلاثي الأبعاد",
-      "مصباح ترحيب أيقوني",
-      "ذاكرة موقع الركن",
-      "شاشة عرض أمامية",
-      "مقعد بخاصية التدليك",
-      "دعم للظهر بأربع وضعيات",
-      "طي الصف الثاني بشكل مسطح من منطقة التحميل",
-      "إضاءة داخلية متعددة الألوان",
-      "نظام صوت Klipsch بـ 12 مكبر صوت",
-      "فتحة سقف بانورامية",
-      "شاشتان مقاس 14.3 إنش",
-      "باب خلفي كهربائي بحساس حركة",
-      "ممتص صدمات للمدينة",
-      "تحكم ذكي بالسرعة",
-      "إضاءة عالية تلقائية",
-      "نظام تحذير السائق",
-      "التدخل في النقاط العمياء",
-      "تنبيه حركة المرور الخلفية",
-      "ProPILOT",
-      "مساعدة البقاء في المسار",
-      "تحذير تنبؤي من الاصطدام الأمامي",
-      "كبح تلقائي في حالات الطوارئ",
-      "كبح تلقائي خلفي في حالات الطوارئ",
-      "تحذير مغادرة المسار",
-      "فرامل ABS",
-      "نظام الثبات الإلكتروني",
-      "حساس ضغط الإطارات",
-      "وسائد هوائية للسائق والراكب",
-      "5 أحزمة أمان",
-      "بطاقة جمركية",
-      "خليجي",
-      "اللون الخارجي: فضي",
-      "اللون الداخلي: عنابي",
-    ],
-
-    en: [
-      "3.5L twin-turbo V6 engine",
-      "9-speed automatic transmission",
-      "Full-time four-wheel drive",
-      "High and low range 4WD",
-      "Differential lock",
-      "Air suspension",
-      "Hydraulic system",
-      "22-inch alloy wheels",
-      "Projector headlights",
-      "Under-hood camera",
-      "Driver seat memory",
-      "Adaptive driving beam",
-      "3D surround-view monitor",
-      "Signature welcome light",
-      "Parking location memory",
-      "Head-up display",
-      "Massage seat",
-      "4-way lumbar support",
-      "Second-row flat-fold release from cargo area",
-      "Multi-color ambient lighting",
-      "12-speaker Klipsch premium audio system",
-      "Panoramic sunroof",
-      "Dual 14.3-inch displays",
-      "Hands-free power tailgate",
-      "City damping system",
-      "Intelligent cruise control",
-      "Automatic high beam",
-      "Driver alert system",
-      "Blind spot intervention",
-      "Rear cross traffic alert",
-      "ProPILOT",
-      "Lane keeping assistance",
-      "Predictive forward collision warning",
-      "Automatic emergency braking",
-      "Rear automatic emergency braking",
-      "Lane departure warning",
-      "ABS brakes",
-      "Electronic stability control",
-      "Tire pressure monitoring",
-      "Driver and passenger airbags",
-      "5 seat belts",
-      "Customs card",
-      "GCC specification",
-      "Exterior color: Silver",
-      "Interior color: Burgundy",
-    ],
-  },
-
-  images: [
-    "/cars/nissan-patrol-platinum-2026/1.webp",
-    "/cars/nissan-patrol-platinum-2026/2.webp",
-    "/cars/nissan-patrol-platinum-2026/3.webp",
-    "/cars/nissan-patrol-platinum-2026/4.webp",
-    "/cars/nissan-patrol-platinum-2026/5.webp",
-    "/cars/nissan-patrol-platinum-2026/6.webp",
-    "/cars/nissan-patrol-platinum-2026/7.webp",
-    "/cars/nissan-patrol-platinum-2026/8.webp",
-    "/cars/nissan-patrol-platinum-2026/9.webp",
-    "/cars/nissan-patrol-platinum-2026/10.webp",
-    "/cars/nissan-patrol-platinum-2026/11.webp",
-    "/cars/nissan-patrol-platinum-2026/12.webp",
-    "/cars/nissan-patrol-platinum-2026/13.webp",
-    "/cars/nissan-patrol-platinum-2026/14.webp",
-    "/cars/nissan-patrol-platinum-2026/15.webp",
-  ],
-},
-  {
-  id: "toyota-land-cruiser-gxr-2026-gcc-white",
-
-  brand: {
-    ar: "تويوتا",
-    en: "Toyota",
-  },
-
-  model: {
-    ar: "لاند كروزر GXR خليجي",
-    en: "Land Cruiser GXR GCC",
-  },
-
-  bodyType: "suv",
-
-  year: 2026,
-
-  mileage: 0,
-
-  price: 0,
-
-  condition: "new",
-
-  transmission: "automatic",
-
-  fuel: "petrol",
-
-  description: {
-    ar: "تويوتا لاند كروزر GXR موديل 2026 خليجي، عداد أصفار وبطاقة جمركية، بمحرك 4.0 لتر تنفس طبيعي 6 سلندر بقوة 271 حصان، باللون الأبيض.",
-    en: "2026 Toyota Land Cruiser GXR GCC specification with zero mileage and customs card, powered by a naturally aspirated 4.0L 6-cylinder petrol engine producing 271 hp, finished in white.",
-  },
-
-  features: {
-    ar: [
-      "محرك 4.0 لتر تنفس طبيعي",
-      "6 سلندر",
-      "قوة 271 حصان",
-      "عداد أصفار",
-      "بطاقة جمركية",
-      "ثلاجة",
-      "دفلك أمامي وخلفي",
-      "دفلك منفصل",
-      "شاشة تدعم Apple CarPlay",
-      "كاميرا خلفية",
-      "مثبت سرعة",
-      "جناح خلفي",
-      "خط جانبي بتصميم GXR",
-      "هوك خلفي",
-      "مقاعد مخمل",
-      "شاشة معلومات متعددة الأغراض 4.2 إنش",
-      "مصابيح ضباب أمامية وخلفية",
-      "تحكم يدوي بمستوى المصابيح الأمامية",
-      "كتابة Land Cruiser على الأبواب",
-      "دعامة أمامية",
-      "عدد 2 كشاف",
-      "خليجي",
-      "اللون المتوفر: أبيض",
-    ],
-
-    en: [
-      "4.0L naturally aspirated engine",
-      "6-cylinder engine",
-      "271 hp",
-      "Zero mileage",
-      "Customs card",
-      "Cool box",
-      "Front and rear differential locks",
-      "Separate differential lock control",
-      "Apple CarPlay compatible display",
-      "Rear camera",
-      "Cruise control",
-      "Rear spoiler",
-      "GXR side graphics",
-      "Rear tow hook",
-      "Velour seats",
-      "4.2-inch multi-information display",
-      "Front and rear fog lights",
-      "Manual headlight leveling",
-      "Land Cruiser door lettering",
-      "Front guard",
-      "Dual auxiliary lights",
-      "GCC specification",
-      "Available color: White",
-    ],
-  },
-
-  images: [
-    "/cars/land-cruiser-gxr-2026-white/1.webp",
-    "/cars/land-cruiser-gxr-2026-white/2.webp",
-    "/cars/land-cruiser-gxr-2026-white/3.webp",
-    "/cars/land-cruiser-gxr-2026-white/4.webp",
-    "/cars/land-cruiser-gxr-2026-white/5.webp",
-    "/cars/land-cruiser-gxr-2026-white/6.webp",
-    "/cars/land-cruiser-gxr-2026-white/7.webp",
-    "/cars/land-cruiser-gxr-2026-white/8.webp",
-    "/cars/land-cruiser-gxr-2026-white/9.webp",
-    "/cars/land-cruiser-gxr-2026-white/10.webp",
-    "/cars/land-cruiser-gxr-2026-white/11.webp",
-    "/cars/land-cruiser-gxr-2026-white/12.webp",
-    "/cars/land-cruiser-gxr-2026-white/13.webp",
-    "/cars/land-cruiser-gxr-2026-white/14.webp",
-  ],
-},
-  {
-  id: "toyota-land-cruiser-gxr-l3-2026-saudi-twin-turbo",
-
-  brand: {
-    ar: "تويوتا",
-    en: "Toyota",
-  },
-
-  model: {
-    ar: "لاند كروزر GXR L3 سعودي تيربو",
-    en: "Land Cruiser GXR L3 Saudi Twin Turbo",
-  },
-
-  bodyType: "suv",
-
-  year: 2026,
-
-  mileage: 0,
-
-  price: 0,
-
-  condition: "new",
-
-  transmission: "automatic",
-
-  fuel: "petrol",
-
-  description: {
-    ar: "تويوتا لاند كروزر GXR L3 موديل 2026 سعودي، عداد أصفار وبطاقة جمركية، بمحرك 3.5 لتر V6 توين تيربو، مع ضمان 3 سنوات أو 100 ألف كيلومتر.",
-    en: "2026 Toyota Land Cruiser GXR L3 Saudi specification with zero mileage and customs card, powered by a 3.5L V6 twin-turbo petrol engine and covered by a 3-year or 100,000 km warranty.",
-  },
-
-  features: {
-    ar: [
-      "محرك 3.5 لتر توين تيربو",
-      "6 سلندر",
-      "عداد أصفار",
-      "بطاقة جمركية",
-      "ضمان 3 سنوات أو 100 ألف كم",
-      "عدادات أوبتيترون",
-      "شاشة معلومات 4.2 إنش",
-      "وسائد هوائية أمامية",
-      "فرامل يد إلكترونية",
-      "أحزمة أمان",
-      "نظام الزحف",
-      "نظام مراقبة ضغط الإطارات TPMS",
-      "سنتر لوك",
-      "دفلوك",
-      "فرامل ABS",
-      "نظام التحكم بالجر TCS",
-      "فتحات تكييف خلفية",
-      "وضعيات قيادة",
-      "تشغيل بالبصمة",
-      "مكيف أوتوماتيكي",
-      "تحكم بالمقود",
-      "ثلاجة",
-      "مقاعد مخمل",
-      "مثبت سرعة",
-      "مقاعد كهربائية",
-      "فتح الأبواب بالريموت",
-      "بلوتوث",
-      "منافذ طاقة",
-      "شاحن لاسلكي",
-      "نظام صوتي",
-      "شاشة وسائط",
-      "شاشة معلومات",
-      "منفذ USB",
-      "كاميرا 360 درجة",
-      "جنوط 20 إنش",
-      "حساسات أمامية",
-      "حساسات خلفية",
-      "مصابيح LED",
-      "فتحة سقف",
-      "إشارات بالمرايا",
-      "مواصفات سعودية",
-      "اللون المتوفر: أسود",
-    ],
-
-    en: [
-      "3.5L twin-turbo engine",
-      "6-cylinder engine",
-      "Zero mileage",
-      "Customs card",
-      "3-year or 100,000 km warranty",
-      "Optitron gauges",
-      "4.2-inch information display",
-      "Front airbags",
-      "Electronic parking brake",
-      "Seat belts",
-      "Crawl Control",
-      "TPMS tire pressure monitoring",
-      "Central locking",
-      "Differential lock",
-      "ABS brakes",
-      "TCS traction control",
-      "Rear air vents",
-      "Drive modes",
-      "Push-button start",
-      "Automatic climate control",
-      "Steering wheel controls",
-      "Cool box",
-      "Velour seats",
-      "Cruise control",
-      "Power seats",
-      "Remote door unlocking",
-      "Bluetooth",
-      "Power outlets",
-      "Wireless charger",
-      "Audio system",
-      "Multimedia display",
-      "Information display",
-      "USB port",
-      "360-degree camera",
-      "20-inch wheels",
-      "Front parking sensors",
-      "Rear parking sensors",
-      "LED headlights",
-      "Sunroof",
-      "Mirror indicators",
-      "Saudi specification",
-      "Available color: Black",
-    ],
-  },
-
-  images: [
-    "/cars/land-cruiser-gxr-l3-2026/1.webp",
-    "/cars/land-cruiser-gxr-l3-2026/2.webp",
-    "/cars/land-cruiser-gxr-l3-2026/3.webp",
-    "/cars/land-cruiser-gxr-l3-2026/4.webp",
-    "/cars/land-cruiser-gxr-l3-2026/5.webp",
-    "/cars/land-cruiser-gxr-l3-2026/6.webp",
-    "/cars/land-cruiser-gxr-l3-2026/7.webp",
-    "/cars/land-cruiser-gxr-l3-2026/8.webp",
-    "/cars/land-cruiser-gxr-l3-2026/9.webp",
-    "/cars/land-cruiser-gxr-l3-2026/10.webp",
-    "/cars/land-cruiser-gxr-l3-2026/11.webp",
-    "/cars/land-cruiser-gxr-l3-2026/12.webp",
-    "/cars/land-cruiser-gxr-l3-2026/13.webp",
-    "/cars/land-cruiser-gxr-l3-2026/14.webp",
-  ],
-},
-  
-{
-  id: "toyota-land-cruiser-vxr-2026-gcc-red-interior",
-
-  brand: {
-    ar: "تويوتا",
-    en: "Toyota",
-  },
-
-  model: {
-    ar: "لاند كروزر VXR خليجي",
-    en: "Land Cruiser VXR GCC",
-  },
-
-  bodyType: "suv",
-
-  year: 2026,
-
-  mileage: 0,
-
-  price: 0,
-
-  condition: "new",
-
-  transmission: "automatic",
-
-  fuel: "petrol",
-
-  description: {
-    ar: "تويوتا لاند كروزر VXR موديل 2026 خليجي، عداد أصفار وبطاقة جمركية، بمحرك 3.5 لتر بنزين توين تيربو، ومتوفر باللونين الأسود والأبيض مع داخلية جلد أحمر وتجهيزات متقدمة.",
-    en: "2026 Toyota Land Cruiser VXR GCC specification with zero mileage and customs card, powered by a 3.5L twin-turbo petrol engine, available in Black and White exterior colors with a red leather interior and premium equipment.",
-  },
-
-  features: {
-    ar: [
-      "محرك 3.5 لتر بنزين توين تيربو",
-      "عداد أصفار",
-      "بطاقة جمركية",
-      "رادار",
-      "شعار Land Cruiser",
-      "جنوط ألمنيوم 20 إنش",
-      "10 وسائد هوائية",
-      "مرايا كروم",
-      "دواسات",
-      "جناح خلفي",
-      "عداد إلكتروني",
-      "فتحة سقف",
-      "ثلاجة",
-      "خط جانبي",
-      "شاحن لاسلكي",
-      "وضعيات قيادة",
-      "مقعد السائق والراكب كهربائي",
-      "مكيف 4 فتحات",
-      "مثبت سرعة",
-      "تشغيل بالبصمة",
-      "شاشة 12.3 إنش",
-      "نظام صوت JBL",
-      "حساس مطر للمساحات",
-      "4 كاميرات",
-      "شاشات خلفية",
-      "كشافات أمامية",
-      "حساسات أمامية وخلفية",
-      "نظام تحديد المسار",
-      "مقاعد جلد",
-      "شنطة كهربائية",
-      "بروجكتر",
-      "تبريد وتسخين المقاعد",
-      "داخلية جلد أحمر",
-      "سماعات JBL",
-      "مواصفات خليجية",
-      "اللون الخارجي: أبيض/أسود",
-      "اللون الداخلي: أحمر",
-    ],
-
-    en: [
-      "3.5L twin-turbo petrol engine",
-      "Zero mileage",
-      "Customs card",
-      "Radar system",
-      "Land Cruiser badging",
-      "20-inch alloy wheels",
-      "10 airbags",
-      "Chrome mirrors",
-      "Side steps",
-      "Rear spoiler",
-      "Digital instrument cluster",
-      "Sunroof",
-      "Cool box",
-      "Side graphics",
-      "Wireless charger",
-      "Drive modes",
-      "Power driver and passenger seats",
-      "Four-vent climate system",
-      "Cruise control",
-      "Push-button start",
-      "12.3-inch display",
-      "JBL audio system",
-      "Rain-sensing wipers",
-      "4 cameras",
-      "Rear entertainment screens",
-      "Front auxiliary lights",
-      "Front and rear parking sensors",
-      "Lane guidance system",
-      "Leather seats",
-      "Power tailgate",
-      "Projector headlights",
-      "Heated and ventilated seats",
-      "Red leather interior",
-      "JBL speakers",
-      "GCC specification",
-      "Exterior color: White,Black",
-      "Interior color: Red",
-    ],
-  },
-
-  images: [
-    "/cars/land-cruiser-vxr-2026/1.webp",
-    "/cars/land-cruiser-vxr-2026/2.webp",
-    "/cars/land-cruiser-vxr-2026/3.webp",
-    "/cars/land-cruiser-vxr-2026/4.webp",
-    "/cars/land-cruiser-vxr-2026/5.webp",
-    "/cars/land-cruiser-vxr-2026/6.webp",
-    "/cars/land-cruiser-vxr-2026/7.webp",
-    "/cars/land-cruiser-vxr-2026/8.webp",
-    "/cars/land-cruiser-vxr-2026/9.webp",
-    "/cars/land-cruiser-vxr-2026/10.webp",
-    "/cars/land-cruiser-vxr-2026/11.webp",
-    "/cars/land-cruiser-vxr-2026/12.webp",
-    "/cars/land-cruiser-vxr-2026/13.webp",
-    "/cars/land-cruiser-vxr-2026/14.webp",
-    "/cars/land-cruiser-vxr-2026/15.webp",
-  ],
-},
-{
-  id: "toyota-land-cruiser-70-pickup-2026-saudi-full",
-
-  brand: {
-    ar: "تويوتا",
-    en: "Toyota",
-  },
-
-  model: {
-    ar: "شاص رفرف فل كامل سعودي",
-    en: "Land Cruiser 70 Pickup Full Option Saudi",
-  },
-
-  bodyType: "pickup",
-
-  year: 2026,
-
-  mileage: 0,
-
-  price: 0,
-
-  condition: "new",
-
-  transmission: "automatic",
-
-  fuel: "petrol",
-
-  description: {
-    ar: "تويوتا شاص 2026 رفرف فل كامل سعودي، جديد بعداد أصفار، بمحرك بنزين 4.0 لتر 6 سلندر وناقل حركة أوتوماتيكي 6 سرعات، مع نظام دفع رباعي وتجهيزات متكاملة.",
-    en: "2026 Toyota Land Cruiser 70 Pickup full-option Saudi specification with zero mileage, powered by a 4.0L 6-cylinder petrol engine and 6-speed automatic transmission with four-wheel drive.",
-  },
-
-  features: {
-    ar: [
-      "محرك 4.0 لتر بنزين",
-      "6 سلندر",
-      "ناقل حركة أوتوماتيكي 6 سرعات",
-      "دفع رباعي",
-      "دبل خفيف",
-      "دبل ثقيل",
-      "دفلوك",
-      "عداد أصفار",
-      "جنوط 16 إنش",
-      "أنوار LED عالية ومنخفضة",
-      "أنوار LED نهارية",
-      "كشافات ضباب أمامية LED",
-      "ونش",
-      "رفرف",
-      "خطوط جانبية",
-      "وطايات جانبية",
-      "مرايا كروم",
-      "هوك خلفي",
-      "ريموت",
-      "مقاعد شامواه بأطراف جلد",
-      "زجاج كهربائي",
-      "مرايا كهربائية",
-      "شاشة معلومات",
-      "Apple CarPlay",
-      "كاميرا خلفية",
-      "مثبت سرعة",
-      "تنبيه الخروج عن المسار",
-      "تخشيب داخلي",
-      "مقود مكسو بالجلد مع تخشيب",
-      "بلوتوث",
-      "منفذا USB Type-C",
-      "منفذ طاقة",
-      "ثلاجة",
-      "مواصفات سعودية",
-      "اللون المتوفر: بيج",
-    ],
-
-    en: [
-      "4.0L petrol engine",
-      "6-cylinder engine",
-      "6-speed automatic transmission",
-      "Four-wheel drive",
-      "Low-range 4WD",
-      "High-range 4WD",
-      "Differential lock",
-      "Zero mileage",
-      "16-inch wheels",
-      "LED high and low beam headlights",
-      "LED daytime running lights",
-      "Front LED fog lights",
-      "Winch",
-      "Fender flares",
-      "Side graphics",
-      "Side steps",
-      "Chrome mirrors",
-      "Rear tow hook",
-      "Remote key",
-      "Suede seats with leather trim",
-      "Power windows",
-      "Power mirrors",
-      "Information display",
-      "Apple CarPlay",
-      "Rear camera",
-      "Cruise control",
-      "Lane departure warning",
-      "Interior wood trim",
-      "Leather-wrapped steering wheel with wood trim",
-      "Bluetooth",
-      "Two USB Type-C ports",
-      "Power outlet",
-      "Cool box",
-      "Saudi specification",
-      "Available color: Beige",
-    ],
-  },
-
-  images: [
-    "/cars/toyota-shas-2026-saudi/1.webp",
-    "/cars/toyota-shas-2026-saudi/2.webp",
-    "/cars/toyota-shas-2026-saudi/3.webp",
-    "/cars/toyota-shas-2026-saudi/4.webp",
-    "/cars/toyota-shas-2026-saudi/5.webp",
-    "/cars/toyota-shas-2026-saudi/6.webp",
-    "/cars/toyota-shas-2026-saudi/7.webp",
-    "/cars/toyota-shas-2026-saudi/8.webp",
-    "/cars/toyota-shas-2026-saudi/9.webp",
-    "/cars/toyota-shas-2026-saudi/10.webp",
-    "/cars/toyota-shas-2026-saudi/11.webp",
-  ],
-},
-{
-  id: "toyota-fortuner-2026-gcc-v6",
-
-  brand: {
-    ar: "تويوتا",
-    en: "Toyota",
-  },
-
-  model: {
-    ar: "فورتشنر 6 سلندر خليجي",
-    en: "Fortuner V6 GCC",
-  },
-
-  bodyType: "suv",
-
-  year: 2026,
-
-  mileage: 0,
-
-  price: 0,
-
-  condition: "new",
-
-  transmission: "automatic",
-
-  fuel: "petrol",
-
-  description: {
-    ar: "تويوتا فورتشنر 2026 خليجي، جديد بعداد أصفار وبطاقة جمركية، بمحرك بنزين 4.0 لتر 6 سلندر وناقل حركة أوتوماتيكي 6 سرعات، مع نظام دفع رباعي.",
-    en: "2026 Toyota Fortuner GCC specification, brand new with zero mileage and customs card, powered by a 4.0L 6-cylinder petrol engine with a 6-speed automatic transmission and four-wheel drive.",
-  },
-
-  features: {
-    ar: [
-      "محرك 4.0 لتر بنزين",
-      "6 سلندر",
-      "ناقل حركة أوتوماتيكي 6 سرعات",
-      "دفع رباعي",
-      "دبل خفيف",
-      "دبل ثقيل",
-      "دفلك",
-      "عداد أصفار",
-      "بطاقة جمركية",
-      "جنوط 17 إنش",
-      "أنوار LED عالية ومنخفضة",
-      "كشافات ضباب LED",
-      "إضاءة خلفية LED",
-      "إشارات بالمرايا",
-      "وطايات جانبية",
-      "مقابض أبواب كروم",
-      "حساسات خلفية",
-      "جناح خلفي",
-      "كشاف ضباب خلفي",
-      "ريموت",
-      "مقاعد قماش",
-      "زجاج كهربائي",
-      "مرايا كهربائية قابلة للطي",
-      "مقود مكسو بالجلد",
-      "تبديل سرعات من خلف المقود",
-      "تحكم بالنظام الصوتي من المقود",
-      "بلوتوث",
-      "مثبت سرعة",
-      "شاشة معلومات",
-      "كاميرا خلفية",
-      "عداد رحلات باللغة العربية",
-      "منفذ USB",
-      "مكيف أمامي يدوي",
-      "مكيف خلفي",
-      "فتحات تبريد بالدرج الأمامي",
-      "منفذ طاقة وUSB خلفي",
-      "تكاية للسائق مكسوة بالجلد",
-      "تكاية خلفية وسطية",
-      "فرامل ABS",
-      "نظام الثبات الإلكتروني",
-      "حساس ضغط الإطارات",
-      "وسائد هوائية للسائق والراكب",
-      "7 أحزمة أمان",
-      "نيكل بالباب الخلفي",
-      "مواصفات خليجية",
-      "اللون المتوفر: أبيض",
-    ],
-
-    en: [
-      "4.0L petrol engine",
-      "6-cylinder engine",
-      "6-speed automatic transmission",
-      "Four-wheel drive",
-      "Low-range 4WD",
-      "High-range 4WD",
-      "Differential lock",
-      "Zero mileage",
-      "Customs card",
-      "17-inch wheels",
-      "LED high and low beam headlights",
-      "LED fog lights",
-      "LED rear lights",
-      "Mirror indicators",
-      "Side steps",
-      "Chrome door handles",
-      "Rear parking sensors",
-      "Rear spoiler",
-      "Rear fog light",
-      "Remote key",
-      "Cloth seats",
-      "Power windows",
-      "Power folding mirrors",
-      "Leather-wrapped steering wheel",
-      "Steering wheel paddle shifters",
-      "Steering wheel audio controls",
-      "Bluetooth",
-      "Cruise control",
-      "Information display",
-      "Rear camera",
-      "Arabic trip computer",
-      "USB port",
-      "Manual front air conditioning",
-      "Rear air conditioning",
-      "Cooled glovebox vents",
-      "Rear power and USB ports",
-      "Leather-trimmed driver armrest",
-      "Rear center armrest",
-      "ABS brakes",
-      "Electronic stability control",
-      "Tire pressure monitoring",
-      "Driver and passenger airbags",
-      "7 seat belts",
-      "Chrome rear door trim",
-      "GCC specification",
-      "Available color: White",
-    ],
-  },
-
-  images: [
-    "/cars/toyota-fortuner-2026/1.webp",
-    "/cars/toyota-fortuner-2026/2.webp",
-    "/cars/toyota-fortuner-2026/3.webp",
-    "/cars/toyota-fortuner-2026/4.webp",
-    "/cars/toyota-fortuner-2026/5.webp",
-    "/cars/toyota-fortuner-2026/6.webp",
-    "/cars/toyota-fortuner-2026/7.webp",
-    "/cars/toyota-fortuner-2026/8.webp",
-    "/cars/toyota-fortuner-2026/9.webp",
-    "/cars/toyota-fortuner-2026/10.webp",
-    "/cars/toyota-fortuner-2026/11.webp",
-    "/cars/toyota-fortuner-2026/12.webp",
-    "/cars/toyota-fortuner-2026/13.webp",
-    "/cars/toyota-fortuner-2026/14.webp",
-  ],
-},
-{
-  id: "mg-zs-2025-standard-gcc",
-
-  brand: {
-    ar: "إم جي",
-    en: "MG",
-  },
-
-  model: {
-    ar: "ZS ستاندر خليجي",
-    en: "ZS Standard GCC",
-  },
-
-  bodyType: "suv",
-
-  year: 2025,
-
-  mileage: 0,
-
-  price: 0,
-
-  condition: "new",
-
-  transmission: "automatic",
-
-  fuel: "petrol",
-
-  description: {
-    ar: "إم جي ZS موديل 2025 ستاندر خليجي، جديدة بعداد أصفار وبطاقة جمركية، بمحرك بنزين 1.5 لتر 4 سلندر وناقل حركة أوتوماتيكي ودفع أمامي، باللون الأبيض وداخلية سوداء.",
-    en: "2025 MG ZS Standard GCC specification, brand new with zero mileage and customs card, powered by a 1.5L 4-cylinder petrol engine with automatic transmission and front-wheel drive, finished in white with a black interior.",
-  },
-
-  features: {
-    ar: [
-      "محرك 1.5 لتر بنزين",
-      "4 سلندر",
-      "ناقل حركة أوتوماتيكي",
-      "دفع أمامي",
-      "عداد أصفار",
-      "بطاقة جمركية",
-      "أنوار LED نهارية",
-      "إشارات بالمرايا",
-      "حنايا عفش",
-      "مقابض أبواب مطعمة بالكروم",
-      "جنوط 17 إنش",
-      "حساسات خلفية",
-      "تشغيل ذكي",
-      "كاميرا خلفية",
-      "مقاعد قماش مقلمة بالأحمر",
-      "زجاج كهربائي",
-      "تحكم بالنظام الصوتي",
-      "تحكم بعداد الرحلات",
-      "مثبت سرعة",
-      "شاشة معلومات",
-      "Apple CarPlay",
-      "Android Auto",
-      "جلنط كهربائي مع Auto Hold",
-      "فتحات تكييف خلفية",
-      "فرامل ABS",
-      "نظام الثبات الإلكتروني",
-      "حساس ضغط الإطارات",
-      "وسائد هوائية أمامية وجانبية",
-      "5 أحزمة أمان",
-      "مواصفات خليجية",
-      "اللون الخارجي: أبيض",
-      "اللون الداخلي: أسود",
-    ],
-
-    en: [
-      "1.5L petrol engine",
-      "4-cylinder engine",
-      "Automatic transmission",
-      "Front-wheel drive",
-      "Zero mileage",
-      "Customs card",
-      "LED daytime running lights",
-      "Mirror indicators",
-      "Cargo hooks",
-      "Chrome-accented door handles",
-      "17-inch wheels",
-      "Rear parking sensors",
-      "Smart start",
-      "Rear camera",
-      "Cloth seats with red accents",
-      "Power windows",
-      "Audio controls",
-      "Trip computer controls",
-      "Cruise control",
-      "Information display",
-      "Apple CarPlay",
-      "Android Auto",
-      "Electronic parking brake with Auto Hold",
-      "Rear air vents",
-      "ABS brakes",
-      "Electronic stability control",
-      "Tire pressure monitoring",
-      "Front and side airbags",
-      "5 seat belts",
-      "GCC specification",
-      "Exterior color: White",
-      "Interior color: Black",
-    ],
-  },
-
-  images: [
-    "/cars/mg-zs-2025/1.webp",
-    "/cars/mg-zs-2025/2.webp",
-    "/cars/mg-zs-2025/3.webp",
-    "/cars/mg-zs-2025/4.webp",
-    "/cars/mg-zs-2025/5.webp",
-    "/cars/mg-zs-2025/6.webp",
-    "/cars/mg-zs-2025/7.webp",
-    "/cars/mg-zs-2025/8.webp",
-    "/cars/mg-zs-2025/9.webp",
-    "/cars/mg-zs-2025/10.webp",
-    "/cars/mg-zs-2025/11.webp",
-    "/cars/mg-zs-2025/12.webp",
-    "/cars/mg-zs-2025/13.webp",
-    "/cars/mg-zs-2025/14.webp",
-    "/cars/mg-zs-2025/15.webp",
-    "/cars/mg-zs-2025/16.webp",
-  ],
-},
-{
-  id: "mg-5-2026-full-option-gcc",
-
-  brand: {
-    ar: "إم جي",
-    en: "MG",
-  },
-
-  model: {
-    ar: "MG 5 فل كامل خليجي",
-    en: "MG 5 Full Option GCC",
-  },
-
-  bodyType: "sedan",
-
-  year: 2026,
-
-  mileage: 0,
-
-  price: 0,
-
-  condition: "new",
-
-  transmission: "automatic",
-
-  fuel: "petrol",
-
-  description: {
-    ar: "إم جي MG 5 موديل 2026 فل كامل خليجي، جديدة بعداد أصفار وبطاقة جمركية، بمحرك بنزين 1.5 لتر 4 سلندر وناقل حركة أوتوماتيكي ودفع أمامي، مع تجهيزات متقدمة وداخلية أوف وايت.",
-    en: "2026 MG 5 Full Option GCC specification, brand new with zero mileage and customs card, powered by a 1.5L 4-cylinder petrol engine with automatic transmission and front-wheel drive, featuring premium equipment and an off-white interior.",
-  },
-
-  features: {
-    ar: [
-      "محرك 1.5 لتر بنزين",
-      "4 سلندر",
-      "ناقل حركة أوتوماتيكي",
-      "دفع أمامي",
-      "عداد أصفار",
-      "بطاقة جمركية",
-      "جنوط 16 إنش",
-      "شبك كروم",
-      "فتحة سقف",
-      "إشارات بالمرايا",
-      "إضاءة خلفية LED",
-      "حساسات خلفية",
-      "تشغيل ذكي",
-      "دخول ذكي",
-      "تشغيل بالبصمة",
-      "كشاف ضباب خلفي",
-      "شاشة تدعم Apple CarPlay",
-      "Android Auto",
-      "عدد 2 ريموت",
-      "مقاعد جلد أوف وايت",
-      "زجاج كهربائي",
-      "كاميرات محيطية",
-      "رادار",
-      "شعار MG نيكل",
-      "جلنط كهربائي",
-      "بلوتوث",
-      "مثبت سرعة",
-      "عداد رحلات",
-      "منفذ USB",
-      "منفذ طاقة",
-      "مكيف خلفي",
-      "5 أحزمة أمان",
-      "مواصفات خليجية",
-      "الألوان الخارجية: أبيض، أسود، فضي",
-      "اللون الداخلي: أوف وايت",
-    ],
-
-    en: [
-      "1.5L petrol engine",
-      "4-cylinder engine",
-      "Automatic transmission",
-      "Front-wheel drive",
-      "Zero mileage",
-      "Customs card",
-      "16-inch wheels",
-      "Chrome grille",
-      "Sunroof",
-      "Mirror indicators",
-      "LED rear lights",
-      "Rear parking sensors",
-      "Smart start",
-      "Smart entry",
-      "Push-button start",
-      "Rear fog light",
-      "Apple CarPlay compatible display",
-      "Android Auto",
-      "2 remote keys",
-      "Off-white leather seats",
-      "Power windows",
-      "Surround-view cameras",
-      "Radar system",
-      "Chrome MG badging",
-      "Electronic parking brake",
-      "Bluetooth",
-      "Cruise control",
-      "Trip computer",
-      "USB port",
-      "Power outlet",
-      "Rear air conditioning",
-      "5 seat belts",
-      "GCC specification",
-      "Exterior colors: White, Black, Silver",
-      "Interior color: Off-white",
-    ],
-  },
-
-  images: [
-    "/cars/mg-5-2026-full/1.webp",
-    "/cars/mg-5-2026-full/2.webp",
-    "/cars/mg-5-2026-full/3.webp",
-    "/cars/mg-5-2026-full/4.webp",
-    "/cars/mg-5-2026-full/5.webp",
-    "/cars/mg-5-2026-full/6.webp",
-    "/cars/mg-5-2026-full/7.webp",
-    "/cars/mg-5-2026-full/8.webp",
-    "/cars/mg-5-2026-full/9.webp",
-    "/cars/mg-5-2026-full/10.webp",
-    "/cars/mg-5-2026-full/11.webp",
-    "/cars/mg-5-2026-full/12.webp",
-    
-  ],
-},
-{
-  id: "toyota-land-cruiser-gxr-l4-2026-gcc",
-
-  brand: {
-    ar: "تويوتا",
-    en: "Toyota",
-  },
-
-  model: {
-    ar: "لاند كروزر GXR L4 خليجي",
-    en: "Land Cruiser GXR L4 GCC",
-  },
-
-  bodyType: "suv",
-
-  year: 2026,
-
-  mileage: 0,
-
-  price: 0,
-
-  condition: "new",
-
-  transmission: "automatic",
-
-  fuel: "petrol",
-
-  description: {
-    ar: "تويوتا لاند كروزر GXR L4 موديل 2026 خليجي، جديد بعداد أصفار وبطاقة جمركية، بمحرك 4.0 لتر تنفس طبيعي 6 سلندر بقوة 271 حصان، مع مقاعد جلد مبردة وشاشات خلفية وتجهيزات متقدمة.",
-    en: "2026 Toyota Land Cruiser GXR L4 GCC specification, brand new with zero mileage and customs card, powered by a naturally aspirated 4.0L 6-cylinder petrol engine producing 271 hp, with ventilated leather seats, rear displays and premium equipment.",
-  },
-
-  features: {
-    ar: [
-      "محرك 4.0 لتر تنفس طبيعي",
-      "6 سلندر",
-      "قوة 271 حصان",
-      "عداد أصفار",
-      "بطاقة جمركية",
-      "شنطة كهربائية",
-      "نظام زحف",
-      "مقاعد جلد",
-      "تبريد المقاعد",
-      "فتحة سقف",
-      "تشغيل بالبصمة",
-      "ثلاجة",
-      "كاميرا خلفية",
-      "دفلك",
-      "شاشة تدعم Apple CarPlay",
-      "شاشات خلفية",
-      "مقاعد كهربائية",
-      "مثبت سرعة",
-      "جناح خلفي",
-      "خط جانبي بتصميم GXR",
-      "شبك أمامي نيكل كروم",
-      "هوك خلفي",
-      "مصابيح ضباب أمامية وخلفية",
-      "تحكم يدوي بمستوى المصابيح الأمامية",
-      "كتابة Land Cruiser على الأبواب",
-      "دعامة أمامية",
-      "عدد 2 كشاف",
-      "جنوط كروم 20 إنش",
-      "أزياق كروم على الأبواب",
-      "مكيف مركزي",
-      "وسائد هوائية أمامية وجانبية",
-      "نظام ECO لتوفير الوقود",
-      "دخول ذكي للأبواب الأمامية",
-      "تحكم بالمقود",
-      "حساسات أمامية وخلفية",
-      "زجاج كهربائي",
-      "5 أحزمة أمان",
-      "مواصفات خليجية",
-      "الألوان المتوفرة: أسود، أبيض",
-    ],
-
-    en: [
-      "4.0L naturally aspirated engine",
-      "6-cylinder engine",
-      "271 hp",
-      "Zero mileage",
-      "Customs card",
-      "Power tailgate",
-      "Crawl Control",
-      "Leather seats",
-      "Ventilated seats",
-      "Sunroof",
-      "Push-button start",
-      "Cool box",
-      "Rear camera",
-      "Differential lock",
-      "Apple CarPlay compatible display",
-      "Rear entertainment displays",
-      "Power seats",
-      "Cruise control",
-      "Rear spoiler",
-      "GXR side graphics",
-      "Chrome front grille",
-      "Rear tow hook",
-      "Front and rear fog lights",
-      "Manual headlight leveling",
-      "Land Cruiser door lettering",
-      "Front guard",
-      "Dual auxiliary lights",
-      "20-inch chrome wheels",
-      "Chrome door moldings",
-      "Central air conditioning",
-      "Front and side airbags",
-      "ECO fuel-saving mode",
-      "Smart entry for front doors",
-      "Steering wheel controls",
-      "Front and rear parking sensors",
-      "Power windows",
-      "5 seat belts",
-      "GCC specification",
-      "Available colors: Black, White",
-    ],
-  },
-
-  images: [
-    "/cars/land-cruiser-gxr-l4-2026/1.webp",
-    "/cars/land-cruiser-gxr-l4-2026/2.webp",
-    "/cars/land-cruiser-gxr-l4-2026/3.webp",
-    "/cars/land-cruiser-gxr-l4-2026/4.webp",
-    "/cars/land-cruiser-gxr-l4-2026/5.webp",
-    "/cars/land-cruiser-gxr-l4-2026/6.webp",
-    "/cars/land-cruiser-gxr-l4-2026/7.webp",
-    "/cars/land-cruiser-gxr-l4-2026/8.webp",
-    "/cars/land-cruiser-gxr-l4-2026/9.webp",
-    "/cars/land-cruiser-gxr-l4-2026/10.webp",
-    "/cars/land-cruiser-gxr-l4-2026/11.webp",
-    "/cars/land-cruiser-gxr-l4-2026/12.webp",
-    "/cars/land-cruiser-gxr-l4-2026/13.webp",
-    "/cars/land-cruiser-gxr-l4-2026/14.webp",
-    "/cars/land-cruiser-gxr-l4-2026/15.webp",
-  ],
-},
-{
-  id: "nissan-patrol-platinum-2026-na-gcc",
-
-  brand: {
-    ar: "نيسان",
-    en: "Nissan",
-  },
-
-  model: {
-    ar: "باترول بلاتينيوم تنفس طبيعي خليجي",
-    en: "Patrol Platinum Naturally Aspirated GCC",
-  },
-
-  bodyType: "suv",
-
-  year: 2026,
-
-  mileage: 0,
-
-  price: 0,
-
-  condition: "new",
-
-  transmission: "automatic",
-
-  fuel: "petrol",
-
-  description: {
-    ar: "نيسان باترول بلاتينيوم موديل 2026 خليجي ببطاقة جمركية، بمحرك V6 سعة 3.8 لتر تنفس طبيعي بقوة 316 حصان، وناقل حركة أوتوماتيكي 9 سرعات مع نظام دفع رباعي.",
-    en: "2026 Nissan Patrol Platinum GCC specification with customs card, powered by a naturally aspirated 3.8L V6 petrol engine producing 316 hp, paired with a 9-speed automatic transmission and four-wheel drive.",
-  },
-
-  features: {
-    ar: [
-      "محرك V6 سعة 3.8 لتر",
-      "تنفس طبيعي",
-      "قوة 316 حصان",
-      "خزان وقود 97 لتر",
-      "ناقل حركة أوتوماتيكي 9 سرعات",
-      "أزرار ناقل حركة بتصميم بيانو",
-      "دفع رباعي مستمر",
-      "دبل خفيف",
-      "دبل ثقيل",
-      "دفلوك",
-      "رادار",
-      "بروجكتر",
-      "تبريد المقاعد",
-      "عدد 2 ريموت",
-      "تشغيل عن بعد",
-      "مرايا كهربائية قابلة للطي",
-      "إشارات LED بالمرايا",
-      "إضاءة خلفية LED",
-      "إضاءة نهارية LED",
-      "كشافات ضباب LED",
-      "شبك أمامي كروم",
-      "جنوط 20 إنش",
-      "دعاسات جانبية",
-      "فتحة سقف بانورامية",
-      "جناح خلفي",
-      "حساسات أمامية وخلفية",
-      "هوك خلفي",
-      "شنطة كهربائية",
-      "كاميرا 360 درجة",
-      "كاميرات محيطية",
-      "دخول ذكي للأبواب الأربعة",
-      "زجاج أمامي مدبل",
-      "تشغيل بالبصمة",
-      "3 صفوف مقاعد",
-      "8 ركاب",
-      "مقاعد جلد",
-      "مقاعد أمامية كهربائية",
-      "أبواب مبطنة بالجلد",
-      "مقابض داخلية كروم",
-      "تخشيب داخلي",
-      "طبلون مبطن بالجلد",
-      "مقود مكسو بالجلد",
-      "تبديل سرعات خلف المقود",
-      "تحكم بالصوت من المقود",
-      "مثبت سرعة",
-      "شاشتان متصلتان",
-      "شاشة ترفيه وملاحة 12.3 إنش",
-      "شاشة عدادات 12.3 إنش",
-      "وضعيات قيادة متعددة",
-      "نظام نزول من المنحدرات",
-      "شاحن لاسلكي",
-      "ثلاجة",
-      "إضاءة سقف LED",
-      "مكيف أوتوماتيكي ثلاثي المناطق",
-      "تكييف خلفي",
-      "فتحات تكييف سقفية",
-      "وسائد هوائية أمامية وجانبية",
-      "6 مكبرات صوت",
-      "منفذ طاقة",
-      "7 أحزمة أمان",
-      "بطاقة جمركية",
-      "مواصفات خليجية",
-      "اللون الخارجي: أبيض بسقف أسود",
-    ],
-
-    en: [
-      "3.8L V6 petrol engine",
-      "Naturally aspirated",
-      "316 hp",
-      "97-liter fuel tank",
-      "9-speed automatic transmission",
-      "Piano-style gear selector",
-      "Full-time four-wheel drive",
-      "Low-range 4WD",
-      "High-range 4WD",
-      "Differential lock",
-      "Radar system",
-      "Projector headlights",
-      "Ventilated seats",
-      "2 remote keys",
-      "Remote start",
-      "Power-folding mirrors",
-      "LED mirror indicators",
-      "LED rear lights",
-      "LED daytime running lights",
-      "LED fog lights",
-      "Chrome front grille",
-      "20-inch wheels",
-      "Side steps",
-      "Panoramic sunroof",
-      "Rear spoiler",
-      "Front and rear parking sensors",
-      "Rear tow hook",
-      "Power tailgate",
-      "360-degree camera",
-      "Surround-view cameras",
-      "Smart entry on all four doors",
-      "Double-glazed windshield",
-      "Push-button start",
-      "Three-row seating",
-      "8-passenger capacity",
-      "Leather seats",
-      "Power front seats",
-      "Leather-trimmed doors",
-      "Chrome interior door handles",
-      "Interior wood trim",
-      "Leather-trimmed dashboard",
-      "Leather-wrapped steering wheel",
-      "Paddle shifters",
-      "Steering wheel audio controls",
-      "Cruise control",
-      "Dual connected displays",
-      "12.3-inch infotainment and navigation display",
-      "12.3-inch instrument display",
-      "Multiple drive modes",
-      "Hill descent control",
-      "Wireless charger",
-      "Cool box",
-      "LED roof lighting",
-      "Three-zone automatic climate control",
-      "Rear air conditioning",
-      "Roof-mounted air vents",
-      "Front and side airbags",
-      "6 speakers",
-      "Power outlet",
-      "7 seat belts",
-      "Customs card",
-      "GCC specification",
-      "Exterior color: White with black roof",
-    ],
-  },
-
-  images: [
-    "/cars/nissan-patrol-platinum-2026-na/1.webp",
-    "/cars/nissan-patrol-platinum-2026-na/2.webp",
-    "/cars/nissan-patrol-platinum-2026-na/3.webp",
-    "/cars/nissan-patrol-platinum-2026-na/4.webp",
-    "/cars/nissan-patrol-platinum-2026-na/5.webp",
-    "/cars/nissan-patrol-platinum-2026-na/6.webp",
-    "/cars/nissan-patrol-platinum-2026-na/7.webp",
-    "/cars/nissan-patrol-platinum-2026-na/8.webp",
-    "/cars/nissan-patrol-platinum-2026-na/9.webp",
-    "/cars/nissan-patrol-platinum-2026-na/10.webp",
-    "/cars/nissan-patrol-platinum-2026-na/11.webp",
-    "/cars/nissan-patrol-platinum-2026-na/12.webp",
-    "/cars/nissan-patrol-platinum-2026-na/13.webp",
-    "/cars/nissan-patrol-platinum-2026-na/14.webp",
-  ],
-},
-{
-  id: "toyota-rav4-2026-standard-gcc",
-
-  brand: {
-    ar: "تويوتا",
-    en: "Toyota",
-  },
-
-  model: {
-    ar: "راف فور ستاندر خليجي",
-    en: "RAV4 Standard GCC",
-  },
-
-  bodyType: "suv",
-
-  year: 2026,
-
-  mileage: 0,
-
-  price: 0,
-
-  condition: "new",
-
-  transmission: "automatic",
-
-  fuel: "petrol",
-
-  description: {
-  ar: "تويوتا راف فور 2026 ستاندر خليجي، جديدة بعداد أصفار وبطاقة جمركية، بمحرك بنزين 2.0 لتر 4 سلندر وناقل حركة CVT مع دفع أمامي، ومتوفرة باللونين الأسود والكحلي.",
-  en: "2026 Toyota RAV4 Standard GCC specification, brand new with zero mileage and customs card, powered by a 2.0L 4-cylinder petrol engine with CVT transmission and front-wheel drive, available in Black and Dark Blue.",
-},
-
-  features: {
-    ar: [
-      "محرك 2.0 لتر بنزين",
-      "4 سلندر",
-      "ناقل حركة CVT",
-      "دفع أمامي",
-      "عداد أصفار",
-      "بطاقة جمركية",
-      "جنوط 17 إنش",
-      "أنوار LED عالية ومنخفضة",
-      "أنوار LED نهارية",
-      "كشافات ضباب LED",
-      "إشارات بالمرايا",
-      "حساسات أمامية",
-      "حساسات خلفية",
-      "جناح خلفي",
-      "كشاف ضباب خلفي",
-      "دخول ذكي",
-      "تشغيل ذكي",
-      "مقاعد قماش",
-      "زجاج كهربائي أوتو بلمسة واحدة",
-      "مرايا كهربائية قابلة للطي",
-      "سنتر لوك للسائق والراكب",
-      "تحكم بالنظام الصوتي من المقود",
-      "مثبت سرعة",
-      "جلنط كهربائي مع Auto Hold",
-      "عداد رحلات",
-      "شاشة معلومات",
-      "كاميرا خلفية",
-      "منافذ USB Type-C",
-      "منفذ طاقة",
-      "فتحات تكييف خلفية",
-      "تكاية وسط مع درج",
-      "منفذا Type-C خلفيان",
-      "تكاية خلفية",
-      "فرامل ABS",
-      "نظام الثبات الإلكتروني",
-      "حساس ضغط الإطارات",
-      "وسائد هوائية أمامية وجانبية",
-      "5 أحزمة أمان",
-      "مواصفات خليجية",
-      "الألوان المتوفرة: أسود، كحلي",
-    ],
-
-    en: [
-      "2.0L petrol engine",
-      "4-cylinder engine",
-      "CVT transmission",
-      "Front-wheel drive",
-      "Zero mileage",
-      "Customs card",
-      "17-inch wheels",
-      "LED high and low beam headlights",
-      "LED daytime running lights",
-      "LED fog lights",
-      "Mirror indicators",
-      "Front parking sensors",
-      "Rear parking sensors",
-      "Rear spoiler",
-      "Rear fog light",
-      "Smart entry",
-      "Smart start",
-      "Cloth seats",
-      "One-touch power windows",
-      "Power-folding mirrors",
-      "Central locking",
-      "Steering wheel audio controls",
-      "Cruise control",
-      "Electronic parking brake with Auto Hold",
-      "Trip computer",
-      "Information display",
-      "Rear camera",
-      "USB Type-C ports",
-      "Power outlet",
-      "Rear air vents",
-      "Front center armrest with storage",
-      "Dual rear USB Type-C ports",
-      "Rear armrest",
-      "ABS brakes",
-      "Electronic stability control",
-      "Tire pressure monitoring",
-      "Front and side airbags",
-      "5 seat belts",
-      "GCC specification",
-      "Available colors: Black, Dark Blue",
-    ],
-  },
-
-  images: [
-  "/cars/toyota-rav4-2026-gcc/1.webp",
-  "/cars/toyota-rav4-2026-gcc/2.webp",
-  "/cars/toyota-rav4-2026-gcc/3.webp",
-  "/cars/toyota-rav4-2026-gcc/4.webp",
-  "/cars/toyota-rav4-2026-gcc/5.webp",
-  "/cars/toyota-rav4-2026-gcc/6.webp",
-  "/cars/toyota-rav4-2026-gcc/7.webp",
-  "/cars/toyota-rav4-2026-gcc/8.webp",
-  "/cars/toyota-rav4-2026-gcc/9.webp",
-  "/cars/toyota-rav4-2026-gcc/10.webp",
-  "/cars/toyota-rav4-2026-gcc/11.webp",
-  "/cars/toyota-rav4-2026-gcc/12.webp",
-  "/cars/toyota-rav4-2026-gcc/13.webp",
-  "/cars/toyota-rav4-2026-gcc/14.webp",
-  "/cars/toyota-rav4-2026-gcc/15.webp",
-  "/cars/toyota-rav4-2026-gcc/16.webp",
-  "/cars/toyota-rav4-2026-gcc/17.webp",
-],
-},
-{
-  id: "gmc-sierra-2500hd-2006-used",
-
-  brand: {
-    ar: "جي إم سي",
-    en: "GMC",
-  },
-
-  model: {
-    ar: "سييرا 2500 HD",
-    en: "Sierra 2500HD",
-  },
-
-  bodyType: "pickup",
-
-  year: 2006,
-
-  mileage: 563000,
-
+  // السعر غير معلن — اتصل بالبائع
   price: 0,
 
   condition: "used",
 
-  transmission: "manual",
-
-  fuel: "petrol",
-
-  description: {
-    ar: "جي إم سي سييرا 2500 HD موديل 2006 مستعملة، بمحرك 8 سلندر وناقل حركة يدوي، باللون الأحمر مع داخلية بيج. الممشى المذكور في وصف المعرض 563,000 كم.",
-    en: "Used 2006 GMC Sierra 2500HD with an 8-cylinder engine and manual transmission, finished in red with a beige interior. The dealership description lists the mileage as 563,000 km.",
-  },
-
-  features: {
-    ar: [
-      "محرك 8 سلندر",
-      "ناقل حركة يدوي",
-      "الممشى المذكور: 563,000 كم",
-      "اللون الخارجي: أحمر",
-      "اللون الداخلي: بيج",
-    ],
-
-    en: [
-      "8-cylinder engine",
-      "Manual transmission",
-      "Listed mileage: 563,000 km",
-      "Exterior color: Red",
-      "Interior color: Beige",
-    ],
-  },
-
-  images: [
-    "/cars/gmc-sierra-2500hd-2006/1.webp",
-    "/cars/gmc-sierra-2500hd-2006/2.webp",
-    "/cars/gmc-sierra-2500hd-2006/3.webp",
-    "/cars/gmc-sierra-2500hd-2006/4.webp",
-    "/cars/gmc-sierra-2500hd-2006/5.webp",
-    "/cars/gmc-sierra-2500hd-2006/6.webp",
-    "/cars/gmc-sierra-2500hd-2006/7.webp",
-    "/cars/gmc-sierra-2500hd-2006/8.webp",
-    "/cars/gmc-sierra-2500hd-2006/9.webp",
-    "/cars/gmc-sierra-2500hd-2006/10.webp",
-  ],
-},
-{
-  id: "toyota-land-cruiser-gxr-l4-2026-saudi-twin-turbo",
-
-  brand: {
-    ar: "تويوتا",
-    en: "Toyota",
-  },
-
-  model: {
-    ar: "لاند كروزر GXR L4 سعودي تيربو",
-    en: "Land Cruiser GXR L4 Saudi Twin Turbo",
-  },
-
-  bodyType: "suv",
-
-  year: 2026,
-
-  mileage: 0,
-
-  price: 0,
-
-  condition: "new",
-
   transmission: "automatic",
 
   fuel: "petrol",
 
   description: {
-    ar: "تويوتا لاند كروزر GXR L4 موديل 2026 سعودي، جديدة بعداد أصفار وبطاقة جمركية، بمحرك 3.5 لتر V6 توين تيربو وناقل حركة أوتوماتيكي 10 سرعات، مع ضمان 3 سنوات أو 100 ألف كيلومتر.",
-    en: "2026 Toyota Land Cruiser GXR L4 Saudi specification, brand new with zero mileage and customs card, powered by a 3.5L V6 twin-turbo petrol engine with a 10-speed automatic transmission, covered by a 3-year or 100,000 km warranty.",
+    ar:
+      "تويوتا لاند كروزر GXR توين تيربو موديل 2022 مستعملة، بمحرك V6 سعة 4.0 لتر حسب بيانات الإعلان، دفع رباعي وناقل حركة تبترونيك، ممشى 93,000 كم، باللون الأسود مع داخلية بيج وتتسع لـ7 ركاب.",
+
+    en:
+      "Used 2022 Toyota Land Cruiser GXR Twin Turbo with a V6 4.0L engine according to the listing, four-wheel drive, Tiptronic transmission, 93,000 km mileage, black exterior, beige interior, and seating for 7 passengers.",
   },
 
   features: {
     ar: [
-      "محرك 3.5 لتر توين تيربو",
-      "6 سلندر",
-      "ناقل حركة أوتوماتيكي 10 سرعات",
+      "محرك V6 سعة 4.0 لتر",
       "دفع رباعي",
-      "دبل خفيف",
-      "دبل ثقيل",
-      "دفلوك",
-      "مساعدة على الالتفاف",
-      "عداد أصفار",
-      "بطاقة جمركية",
-      "ضمان 3 سنوات أو 100 ألف كم",
-      "فتحة سقف",
-      "جنوط 20 إنش",
-      "أنوار LED عالية ومنخفضة",
-      "غسيل أنوار أمامية",
-      "أنوار LED نهارية أمامية",
-      "إضاءة LED خلفية",
-      "كشافات ضباب LED",
-      "وطايات جانبية",
-      "حنايا عفش",
-      "إشارات بالمرايا",
-      "حساسات أمامية",
-      "حساسات خلفية",
-      "هوك خلفي",
-      "جناح خلفي",
-      "دخول ذكي من جميع الأبواب",
-      "تشغيل ذكي",
-      "تشغيل عن بعد",
-      "مقاعد جلد",
-      "مقعد السائق والراكب كهربائي",
-      "تهوية المقاعد الأمامية",
-      "زجاج كهربائي أوتو بلمسة واحدة",
-      "مرايا كهربائية قابلة للطي",
-      "مرآة داخلية بخاصية التعتيم",
-      "تخشيب داخلي",
-      "ثلاجة",
-      "مقود مكسو بالجلد",
-      "تحكم بالنظام الصوتي من المقود",
-      "شاحن لاسلكي",
-      "شاشة معلومات وملاحة",
-      "شاشات خلفية",
-      "Apple CarPlay",
-      "4 كاميرات مع رؤية محيطية",
-      "جلنط كهربائي مع Auto Hold",
-      "مثبت سرعة",
-      "عداد رحلات باللغة العربية",
-      "بلوتوث",
-      "مكيف أمامي لمس بتحكم منفصل",
-      "مكيف خلفي",
-      "تكاية خلفية",
-      "منفذا USB Type-C خلفيان",
-      "منفذ طاقة خلفي",
-      "شنطة كهربائية",
-      "رادار",
-      "نظام تحديد المسار",
-      "مواصفات سعودية",
-      "اللون المتوفر: أسود",
-    ],
-
-    en: [
-      "3.5L twin-turbo petrol engine",
-      "6-cylinder engine",
-      "10-speed automatic transmission",
-      "Four-wheel drive",
-      "Low-range 4WD",
-      "High-range 4WD",
-      "Differential lock",
-      "Turn assist",
-      "Zero mileage",
-      "Customs card",
-      "3-year or 100,000 km warranty",
-      "Sunroof",
-      "20-inch wheels",
-      "LED high and low beam headlights",
-      "Headlight washers",
-      "LED daytime running lights",
-      "LED rear lights",
-      "LED fog lights",
-      "Side steps",
-      "Cargo hooks",
-      "Mirror indicators",
-      "Front parking sensors",
-      "Rear parking sensors",
-      "Rear tow hook",
-      "Rear spoiler",
-      "Smart entry on all doors",
-      "Smart start",
-      "Remote start",
-      "Leather seats",
-      "Power driver and passenger seats",
-      "Ventilated front seats",
-      "One-touch power windows",
-      "Power-folding mirrors",
-      "Auto-dimming rear-view mirror",
-      "Interior wood trim",
-      "Cool box",
-      "Leather-wrapped steering wheel",
-      "Steering wheel audio controls",
-      "Wireless charger",
-      "Navigation and information display",
-      "Rear entertainment displays",
-      "Apple CarPlay",
-      "4-camera surround-view system",
-      "Electronic parking brake with Auto Hold",
-      "Cruise control",
-      "Arabic trip computer",
-      "Bluetooth",
-      "Front touchscreen climate control",
-      "Rear air conditioning",
-      "Rear armrest",
-      "Dual rear USB Type-C ports",
-      "Rear power outlet",
-      "Power tailgate",
-      "Radar system",
-      "Lane guidance system",
-      "Saudi specification",
-      "Available color: Black",
-    ],
-  },
-
-  images: [
-    "/cars/land-cruiser-gxr-l4-2026-saudi/1.jpg",
-    "/cars/land-cruiser-gxr-l4-2026-saudi/2.jpg",
-    "/cars/land-cruiser-gxr-l4-2026-saudi/3.jpg",
-  ],
-},
-{
-  id: "toyota-land-cruiser-70-pickup-2026-diesel-saudi-manual",
-
-  brand: {
-    ar: "تويوتا",
-    en: "Toyota",
-  },
-
-  model: {
-    ar: "شاص رفرف ديزل سعودي",
-    en: "Land Cruiser 70 Pickup Diesel Saudi",
-  },
-
-  bodyType: "pickup",
-
-  year: 2026,
-
-  mileage: 0,
-
-  price: 0,
-
-  condition: "new",
-
-  transmission: "manual",
-
-  fuel: "diesel",
-
-  description: {
-    ar: "تويوتا شاص رفرف موديل 2026 سعودي، جديد بعداد أصفار، بمحرك ديزل 2.8 لتر وناقل حركة يدوي 5 سرعات، مع دبل خفيف وثقيل ودفلوك، باللون البيج وداخلية جملي.",
-    en: "2026 Toyota Land Cruiser 70 Pickup Saudi specification, brand new with zero mileage, powered by a 2.8L diesel engine with a 5-speed manual transmission, featuring low and high range 4WD and differential lock, finished in beige with a camel interior.",
-  },
-
-  features: {
-    ar: [
-      "محرك ديزل 2.8 لتر",
-      "ناقل حركة يدوي 5 سرعات",
-      "دفع خلفي",
-      "دبل خفيف",
-      "دبل ثقيل",
-      "دفلوك",
-      "قفل للدفرنس الأمامي",
-      "عداد أصفار",
-      "جنوط 16 إنش",
-      "أنوار أمامية LED",
-      "كشافات ضباب",
-      "خطوط جانبية",
-      "غطاء بلاستيك للإطار الاحتياطي",
-      "داخلية باللون الجملي",
-      "مقاعد شامواه",
-      "شاشة معلومات وملاحة",
+      "ناقل حركة تبترونيك",
+      "ممشى 93,000 كم",
+      "لون خارجي أسود",
+      "داخلية بيج",
+      "مقاعد مخمل",
+      "7 ركاب",
+      "4 أبواب",
+      "جنوط ألمنيوم 20 إنش",
+      "نوافذ أوتوماتيكية",
       "كاميرا خلفية",
+      "بلوتوث",
       "مثبت سرعة",
-      "تخشيب داخلي",
-      "تحكم بالأوامر الصوتية",
-      "حامل أكواب",
-      "خزانان للديزل بسعة إجمالية 190 لتر",
-      "نظام مساعدة للنزول من المنحدرات",
-      "وضعيات قيادة",
-      "وسائد هوائية أمامية",
-      "فرامل ABS",
-      "مواصفات سعودية",
-      "اللون الخارجي: بيج",
+      "دخول بدون مفتاح",
+      "تشغيل بدون مفتاح",
+      "حساسات خلفية",
+      "وسائد هوائية للسائق",
+      "وسائد هوائية للركاب",
+      "كلّاب جر خلفي",
+      "نظام مانع الانزلاق",
     ],
 
     en: [
-      "2.8L diesel engine",
-      "5-speed manual transmission",
-      "Rear-wheel drive",
-      "Low-range 4WD",
-      "High-range 4WD",
-      "Differential lock",
-      "Front differential lock",
-      "Zero mileage",
-      "16-inch wheels",
-      "LED headlights",
-      "Fog lights",
-      "Side graphics",
-      "Plastic spare wheel cover",
-      "Camel interior",
-      "Suede seats",
-      "Information and navigation display",
+      "V6 4.0L engine",
+      "Four-wheel drive",
+      "Tiptronic transmission",
+      "93,000 km mileage",
+      "Black exterior",
+      "Beige interior",
+      "Velvet seats",
+      "7 seats",
+      "4 doors",
+      "20-inch alloy wheels",
+      "Power windows",
       "Rear camera",
+      "Bluetooth",
       "Cruise control",
-      "Interior wood trim",
-      "Voice controls",
-      "Cup holder",
-      "Dual diesel tanks with 190L total capacity",
-      "Hill descent assist",
-      "Drive modes",
-      "Front airbags",
-      "ABS brakes",
-      "Saudi specification",
-      "Exterior color: Beige",
+      "Keyless entry",
+      "Keyless start",
+      "Rear parking sensors",
+      "Driver airbags",
+      "Passenger airbags",
+      "Rear tow hook",
+      "Traction control",
     ],
   },
 
   images: [
-    "/cars/toyota-shas-2026-diesel-saudi/1.jpg",
-    "/cars/toyota-shas-2026-diesel-saudi/2.jpg",
-    "/cars/toyota-shas-2026-diesel-saudi/3.jpg",
+    "/cars/toyota-land-cruiser-gxr-2022/1.jpg",
+    "/cars/toyota-land-cruiser-gxr-2022/2.jpg",
+    "/cars/toyota-land-cruiser-gxr-2022/3.jpg",
+    "/cars/toyota-land-cruiser-gxr-2022/4.jpg",
+    "/cars/toyota-land-cruiser-gxr-2022/5.jpg",
+    "/cars/toyota-land-cruiser-gxr-2022/6.jpg",
+    "/cars/toyota-land-cruiser-gxr-2022/7.jpg",
+    "/cars/toyota-land-cruiser-gxr-2022/8.jpg",
+    "/cars/toyota-land-cruiser-gxr-2022/9.jpg",
+    "/cars/toyota-land-cruiser-gxr-2022/10.jpg",
   ],
 },
-{
-  id: "toyota-land-cruiser-70-quarter-2026-v6-gcc",
+     {
+  id: "gwm-tank-500-2027-204314",
 
   brand: {
-    ar: "تويوتا",
-    en: "Toyota",
+    ar: "جي دبليو ام",
+    en: "GWM",
   },
 
   model: {
-    ar: "ربع V6 رفرف فل كامل خليجي",
-    en: "Land Cruiser 70 V6 Full Option GCC",
+    ar: "تانك 500",
+    en: "Tank 500",
   },
 
   bodyType: "suv",
 
-  year: 2026,
+  year: 2027,
 
   mileage: 0,
 
+  // السعر غير معلن — اتصل بالبائع
   price: 0,
 
   condition: "new",
@@ -2154,253 +213,259 @@ export const vehicles: Vehicle[] = [
   fuel: "petrol",
 
   description: {
-    ar: "تويوتا ربع موديل 2026 رفرف فل كامل خليجي، جديدة بعداد أصفار وبطاقة جمركية، بمحرك V6 سعة 4.0 لتر بقوة 228 حصان وناقل حركة أوتوماتيكي 6 سرعات مع دفع رباعي.",
-    en: "2026 Toyota Land Cruiser 70 V6 Full Option GCC specification, brand new with zero mileage and customs card, powered by a 4.0L V6 petrol engine producing 228 hp with a 6-speed automatic transmission and four-wheel drive.",
+    ar:
+      "جي دبليو ام تانك 500 موديل 2027 جديدة، بمحرك V6 سعة 3.0 لتر، دفع رباعي مستمر وناقل حركة تبترونيك، باللون الأسود مع داخلية أبيض غامق، وتتسع لـ5 ركاب.",
+
+    en:
+      "2027 GWM Tank 500, brand new, powered by a 3.0L V6 petrol engine with full-time four-wheel drive and Tiptronic transmission, finished in black with a dark white interior and seating for 5 passengers.",
   },
 
   features: {
     ar: [
-      "محرك 4.0 لتر V6 بنزين",
-      "6 سلندر",
-      "نظام توقيت متغير ذكي للصمامات",
-      "قوة 228 حصان",
-      "عزم 360 نيوتن متر",
-      "ناقل حركة أوتوماتيكي 6 سرعات",
-      "دفع رباعي",
-      "دفلوك",
-      "عداد أصفار",
-      "بطاقة جمركية",
-      "خزان وقود 90 لتر",
-      "استهلاك وقود 8.0 كم/لتر",
-      "بنزين 95",
-      "5 ركاب",
-      "جنوط ألمنيوم 16 إنش",
-      "إطارات 265/70R",
-      "مثبت سرعة",
-      "أنوار أمامية LED",
-      "شاشة لمس 9 إنش",
-      "نظام صوتي بسماعتين",
-      "Apple CarPlay لاسلكي",
-      "راديو DAB",
-      "عدادات أوبتيترون",
-      "شاشة معلومات 4.2 إنش",
-      "فتح الأبواب عن بعد",
-      "نوافذ كهربائية",
-      "ونش كهربائي",
-      "ثلاجة",
-      "تحكم من المقود",
+      "محرك V6 سعة 3.0 لتر",
+      "دفع رباعي مستمر",
+      "ناقل حركة تبترونيك",
+      "عداد 0 كم",
+      "لون خارجي أسود",
+      "داخلية أبيض غامق",
       "مقاعد جلد",
-      "تعليق خلفي بنوابض صفائحية صلبة 5 ريش",
-      "نظام المساعدة على نزول المنحدرات",
-      "حقيبة السلامة الأساسية",
-      "غطاء للإطار الاحتياطي",
-      "مواصفات خليجية",
-      "اللون الخارجي: أبيض",
-    ],
-
-    en: [
-      "4.0L V6 petrol engine",
-      "6-cylinder engine",
-      "Variable valve timing",
-      "228 hp",
-      "360 Nm torque",
-      "6-speed automatic transmission",
-      "Four-wheel drive",
-      "Differential lock",
-      "Zero mileage",
-      "Customs card",
-      "90-liter fuel tank",
-      "8.0 km/L fuel economy",
-      "95-octane petrol",
-      "5-passenger capacity",
-      "16-inch alloy wheels",
-      "265/70R tires",
-      "Cruise control",
-      "LED headlights",
-      "9-inch touchscreen",
-      "2-speaker audio system",
-      "Wireless Apple CarPlay",
-      "DAB digital radio",
-      "Optitron gauges",
-      "4.2-inch information display",
-      "Remote door unlocking",
-      "Power windows",
-      "Electric winch",
-      "Cool box",
-      "Steering wheel controls",
-      "Leather seats",
-      "5-leaf rear suspension",
-      "Hill descent assist",
-      "Basic safety kit",
-      "Spare wheel cover",
-      "GCC specification",
-      "Exterior color: White",
-    ],
-  },
-
-  images: [
-    "/cars/toyota-quarter-v6-2026-gcc/1.webp",
-    "/cars/toyota-quarter-v6-2026-gcc/2.webp",
-    "/cars/toyota-quarter-v6-2026-gcc/3.webp",
-    "/cars/toyota-quarter-v6-2026-gcc/4.webp",
-    "/cars/toyota-quarter-v6-2026-gcc/5.webp",
-    "/cars/toyota-quarter-v6-2026-gcc/6.webp",
-    "/cars/toyota-quarter-v6-2026-gcc/7.webp",
-    "/cars/toyota-quarter-v6-2026-gcc/8.webp",
-    "/cars/toyota-quarter-v6-2026-gcc/9.webp",
-    "/cars/toyota-quarter-v6-2026-gcc/10.webp",
-    "/cars/toyota-quarter-v6-2026-gcc/11.webp",
-    "/cars/toyota-quarter-v6-2026-gcc/12.webp",
-  ],
-},
-{
-  id: "toyota-hilux-2026-diesel-4x4-saudi-manual",
-
-  brand: {
-    ar: "تويوتا",
-    en: "Toyota",
-  },
-
-  model: {
-    ar: "هايلوكس ديزل دبل قير عادي سعودي",
-    en: "Hilux Diesel 4x4 Manual Saudi",
-  },
-
-  bodyType: "pickup",
-
-  year: 2026,
-
-  mileage: 0,
-
-  price: 0,
-
-  condition: "new",
-
-  transmission: "manual",
-
-  fuel: "diesel",
-
-  description: {
-    ar: "تويوتا هايلوكس موديل 2026 سعودي، جديدة بعداد أصفار، بمحرك ديزل 2.4 لتر 4 سلندر وناقل حركة يدوي 6 سرعات مع نظام دفع رباعي ودبل خفيف وثقيل، وضمان 3 سنوات أو 100 ألف كيلومتر.",
-    en: "2026 Toyota Hilux Saudi specification, brand new with zero mileage, powered by a 2.4L 4-cylinder diesel engine with a 6-speed manual transmission, four-wheel drive with high and low range, and a 3-year or 100,000 km warranty.",
-  },
-
-  features: {
-    ar: [
-      "محرك ديزل 2.4 لتر",
-      "4 سلندر",
-      "ناقل حركة يدوي 6 سرعات",
-      "دفع رباعي",
-      "دبل خفيف",
-      "دبل ثقيل",
-      "عداد أصفار",
-      "ضمان 3 سنوات أو 100 ألف كم",
-      "جنوط حديد 17 إنش",
-      "شبك كروم",
-      "صدام أمامي ستيل",
-      "مرايا كروم",
-      "مقابض كروم",
-      "إشارات بالمرايا",
-      "خطوط جانبية",
-      "تلبيسة حماية فايبر للحوض",
-      "كشاف ضباب خلفي",
-      "صدام خلفي ستيل",
-      "ريموت",
-      "مقاعد قماش",
-      "زجاج كهربائي",
-      "مرايا كهربائية",
-      "سنتر لوك",
-      "تحكم بالنظام الصوتي من المقود",
-      "شاشة معلومات",
-      "منفذ USB",
-      "منفذ طاقة",
+      "5 ركاب",
+      "4 أبواب",
+      "جنوط ألمنيوم 20 إنش",
+      "نوافذ أوتوماتيكية",
+      "كاميرا خلفية",
       "بلوتوث",
-      "مكيف يدوي",
-      "جلنط يدوي",
-      "عداد رحلات",
-      "فرامل ABS",
-      "حساس ضغط الإطارات",
-      "نظام الثبات الإلكتروني",
-      "وسائد هوائية للسائق والراكب",
-      "6 أحزمة أمان",
-      "مواصفات سعودية",
-      "اللون المتوفر: أبيض",
+      "مثبت سرعة",
+      "دخول بدون مفتاح",
+      "تشغيل بدون مفتاح",
+      "نظام ملاحة",
+      "حساسات خلفية",
+      "فتحة سقف",
+      "مصابيح زنون",
+      "وسائد هوائية للسائق",
+      "وسائد هوائية للركاب",
+      "نظام مانع الانزلاق",
     ],
 
     en: [
-      "2.4L diesel engine",
-      "4-cylinder engine",
-      "6-speed manual transmission",
-      "Four-wheel drive",
-      "High-range 4WD",
-      "Low-range 4WD",
-      "Zero mileage",
-      "3-year or 100,000 km warranty",
-      "17-inch steel wheels",
-      "Chrome grille",
-      "Steel front bumper",
-      "Chrome mirrors",
-      "Chrome door handles",
-      "Mirror indicators",
-      "Side graphics",
-      "Fiberglass bed protection liner",
-      "Rear fog light",
-      "Steel rear bumper",
-      "Remote key",
-      "Cloth seats",
+      "3.0L V6 engine",
+      "Full-time four-wheel drive",
+      "Tiptronic transmission",
+      "0 km mileage",
+      "Black exterior",
+      "Dark white interior",
+      "Leather seats",
+      "5 seats",
+      "4 doors",
+      "20-inch alloy wheels",
       "Power windows",
-      "Power mirrors",
-      "Central locking",
-      "Steering wheel audio controls",
-      "Information display",
-      "USB port",
-      "Power outlet",
+      "Rear camera",
       "Bluetooth",
-      "Manual air conditioning",
-      "Manual parking brake",
-      "Trip computer",
-      "ABS brakes",
-      "Tire pressure monitoring",
-      "Electronic stability control",
-      "Driver and passenger airbags",
-      "6 seat belts",
-      "Saudi specification",
-      "Available color: White",
+      "Cruise control",
+      "Keyless entry",
+      "Keyless start",
+      "Navigation system",
+      "Rear parking sensors",
+      "Sunroof",
+      "Xenon headlights",
+      "Driver airbags",
+      "Passenger airbags",
+      "Traction control",
     ],
   },
 
   images: [
-    "/cars/toyota-hilux-2026-diesel-saudi/1.webp",
-    "/cars/toyota-hilux-2026-diesel-saudi/2.webp",
-    "/cars/toyota-hilux-2026-diesel-saudi/3.webp",
-    "/cars/toyota-hilux-2026-diesel-saudi/4.webp",
-    "/cars/toyota-hilux-2026-diesel-saudi/5.webp",
-    "/cars/toyota-hilux-2026-diesel-saudi/6.webp",
-    "/cars/toyota-hilux-2026-diesel-saudi/7.webp",
-    "/cars/toyota-hilux-2026-diesel-saudi/8.webp",
-    "/cars/toyota-hilux-2026-diesel-saudi/9.webp",
-    "/cars/toyota-hilux-2026-diesel-saudi/10.webp",
-    "/cars/toyota-hilux-2026-diesel-saudi/11.webp",
-    "/cars/toyota-hilux-2026-diesel-saudi/12.webp",
-    "/cars/toyota-hilux-2026-diesel-saudi/13.webp",
+    "/cars/gwm-tank-500-2027/1.jpg",
+    "/cars/gwm-tank-500-2027/2.jpg",
+    "/cars/gwm-tank-500-2027/3.jpg",
+    "/cars/gwm-tank-500-2027/4.jpg",
+    "/cars/gwm-tank-500-2027/5.jpg",
+    "/cars/gwm-tank-500-2027/6.jpg",
+    "/cars/gwm-tank-500-2027/7.jpg",
+    "/cars/gwm-tank-500-2027/8.jpg",
+    "/cars/gwm-tank-500-2027/9.jpg",
+    "/cars/gwm-tank-500-2027/10.jpg",
   ],
 },
+  {
+    id: "toyota-land-cruiser-gxr-v8-204450",
+
+    brand: {
+      ar: "تويوتا",
+      en: "Toyota",
+    },
+
+    model: {
+      ar: "لاند كروزر GXR V8",
+      en: "Land Cruiser GXR V8",
+    },
+
+    bodyType: "suv",
+
+    // سنة الصنع غير مذكورة في الإعلان
+    year: 0,
+
+    mileage: 86000,
+
+    // السعر غير معلن — اتصل بالبائع
+    price: 0,
+
+    condition: "used",
+
+    transmission: "automatic",
+
+    fuel: "petrol",
+
+    description: {
+      ar:
+        "تويوتا لاند كروزر GXR V8 مستعملة، بمحرك 4.7 لتر V8 ودفع رباعي، ممشى 86,000 كم، لون خارجي أبيض وداخلية بيج، وتتسع لـ7 ركاب.",
+
+      en:
+        "Used Toyota Land Cruiser GXR V8 with a 4.7L V8 engine, four-wheel drive, 86,000 km mileage, white exterior, beige interior, and seating for 7 passengers.",
+    },
+
+    features: {
+      ar: [
+        "محرك V8 سعة 4.7 لتر",
+        "دفع رباعي",
+        "ناقل حركة تبترونيك",
+        "ممشى 86,000 كم",
+        "لون خارجي أبيض",
+        "داخلية بيج",
+        "مقاعد مخمل",
+        "7 ركاب",
+        "4 أبواب",
+        "جنوط ألمنيوم 20 إنش",
+        "نوافذ أوتوماتيكية",
+        "كاميرا خلفية",
+        "بلوتوث",
+        "مثبت سرعة",
+        "دخول بدون مفتاح",
+        "تشغيل بدون مفتاح",
+        "نظام ملاحة",
+        "حساسات خلفية",
+        "فتحة سقف",
+        "مصابيح زنون",
+        "وسائد هوائية للسائق",
+        "وسائد هوائية للركاب",
+        "نظام مانع الانزلاق",
+        "كلّاب جر خلفي",
+      ],
+
+      en: [
+        "4.7L V8 engine",
+        "Four-wheel drive",
+        "Tiptronic transmission",
+        "86,000 km mileage",
+        "White exterior",
+        "Beige interior",
+        "Velvet seats",
+        "7 seats",
+        "4 doors",
+        "20-inch alloy wheels",
+        "Power windows",
+        "Rear camera",
+        "Bluetooth",
+        "Cruise control",
+        "Keyless entry",
+        "Keyless start",
+        "Navigation system",
+        "Rear parking sensors",
+        "Sunroof",
+        "Xenon headlights",
+        "Driver airbags",
+        "Passenger airbags",
+        "Traction control",
+        "Rear tow hook",
+      ],
+    },
+
+    /* =====================================================
+       VEHICLE IMAGES
+
+       الصور توضع داخل:
+
+       public/
+       └── cars/
+           └── toyota-land-cruiser-gxr-v8/
+               ├── 1.webp
+               ├── 2.webp
+               ├── 3.webp
+               ├── 4.webp
+               └── 5.webp
+    ===================================================== */
+
+    images: [
+      "/cars/toyota-land-cruiser-gxr-v8/1.jpg",
+      "/cars/toyota-land-cruiser-gxr-v8/2.jpg",
+      "/cars/toyota-land-cruiser-gxr-v8/3.jpg",
+      "/cars/toyota-land-cruiser-gxr-v8/4.jpg",
+      "/cars/toyota-land-cruiser-gxr-v8/5.jpg",
+      "/cars/toyota-land-cruiser-gxr-v8/6.jpg",
+      "/cars/toyota-land-cruiser-gxr-v8/7.jpg",
+      "/cars/toyota-land-cruiser-gxr-v8/8.jpg",
+      "/cars/toyota-land-cruiser-gxr-v8/9.jpg",
+      "/cars/toyota-land-cruiser-gxr-v8/10.jpg",
+      "/cars/toyota-land-cruiser-gxr-v8/11.jpg",
+    ],
+  },
 ];
 
-export const getVehicle = (id: string) => vehicles.find((v) => v.id === id);
 
-export const similarVehicles = (vehicle: Vehicle, limit = 3) =>
+
+/* =========================================================
+   GET VEHICLE BY ID
+========================================================= */
+
+export const getVehicle = (id: string) =>
+  vehicles.find((vehicle) => vehicle.id === id);
+
+
+/* =========================================================
+   SIMILAR VEHICLES
+========================================================= */
+
+export const similarVehicles = (
+  vehicle: Vehicle,
+  limit = 3,
+) =>
   vehicles
     .filter((v) => v.id !== vehicle.id)
     .sort((a, b) => {
       const score = (v: Vehicle) =>
-        (v.bodyType === vehicle.bodyType ? -2 : 0) + Math.abs(v.price - vehicle.price) / 1_000_000;
+        (v.bodyType === vehicle.bodyType ? -2 : 0) +
+        Math.abs(v.price - vehicle.price) / 1_000_000;
+
       return score(a) - score(b);
     })
     .slice(0, limit);
 
-export const vehicleBrands = (lang: "ar" | "en") =>
-  Array.from(new Set(vehicles.map((v) => v.brand[lang])));
+
+/* =========================================================
+   VEHICLE BRANDS
+========================================================= */
+
+export const vehicleBrands = (
+  lang: "ar" | "en",
+) =>
+  Array.from(
+    new Set(
+      vehicles.map(
+        (vehicle) => vehicle.brand[lang],
+      ),
+    ),
+  );
+
+
+/* =========================================================
+   VEHICLE YEARS
+========================================================= */
 
 export const vehicleYears = () =>
-  Array.from(new Set(vehicles.map((v) => v.year))).sort((a, b) => b - a);
+  Array.from(
+    new Set(
+      vehicles
+        .map((vehicle) => vehicle.year)
+        .filter((year) => year > 0),
+    ),
+  ).sort((a, b) => b - a);

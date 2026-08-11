@@ -7,15 +7,27 @@ import {
 import { Link } from "@tanstack/react-router";
 
 import heroCar from "@/assets/hero-car.jpg";
-import {
-  dealership,
-  telHref,
-  waLink,
-} from "@/config/dealership";
 import { useI18n } from "@/i18n";
+
+const showroom = {
+  nameAr: "معرض القلعه للسيارات",
+  nameEn: "ALQALAA CAR SHOWROOM",
+  phone: "+974 5585 4080",
+  phoneRaw: "+97455854080",
+  locationAr: "مدينة مواتر - قطر",
+  locationEn: "Mawater City - Qatar",
+};
+
+const telHref = `tel:${showroom.phoneRaw}`;
+
+const waLink = (message: string) =>
+  `https://wa.me/${showroom.phoneRaw.replace("+", "")}?text=${encodeURIComponent(
+    message
+  )}`;
 
 export function Hero() {
   const { t, lang } = useI18n();
+
   const Arrow = lang === "ar" ? ArrowLeft : ArrowRight;
 
   return (
@@ -29,10 +41,17 @@ export function Hero() {
         scroll-mt-20
       "
     >
-      {/* Background image */}
+      {/* =========================
+          Background Image
+      ========================= */}
+
       <img
         src={heroCar}
-        alt={t.hero.imageAlt}
+        alt={
+          lang === "ar"
+            ? "سيارات معرض القلعه للسيارات في قطر"
+            : "ALQALAA CAR SHOWROOM Qatar"
+        }
         className="
           absolute inset-0 -z-30
           h-full w-full
@@ -41,75 +60,79 @@ export function Hero() {
         "
       />
 
-      {/* =====================================================
-          LIGHT MODE OVERLAYS
-          ===================================================== */}
+      {/* =========================
+          Main Overlay
+      ========================= */}
 
-      {/* 
-        نخلي جهة النص فاتحة حتى يكون النص واضح،
-        لكن بدون تغطية السيارة كلها بطبقة بيضاء.
-      */}
-      {/* =====================================================
-    LIGHT / DARK MODE OVERLAYS
-    ===================================================== */}
+      <div
+        aria-hidden="true"
+        className="
+          absolute inset-0 -z-20
+          bg-gradient-to-l
+          ltr:bg-gradient-to-r
 
-{/* Main horizontal overlay */}
-<div
-  aria-hidden="true"
-  className="
-    absolute inset-0 -z-20
-    bg-gradient-to-l
-    ltr:bg-gradient-to-r
+          from-[#faf8f2]/95
+          from-0%
+          via-[#faf8f2]/72
+          via-24%
+          to-transparent
+          to-58%
 
-    from-[#faf8f2]/95
-    from-0%
-    via-[#faf8f2]/72
-    via-24%
-    to-transparent
-    to-58%
+          dark:from-background/90
+          dark:via-background/55
+          dark:to-background/5
+        "
+      />
 
-    dark:from-background/90
-    dark:via-background/55
-    dark:to-background/5
-  "
-/>
+      {/* =========================
+          Bottom Fade
+      ========================= */}
 
-{/* Bottom fade */}
-<div
-  aria-hidden="true"
-  className="
-    absolute inset-0 -z-20
-    bg-gradient-to-t
+      <div
+        aria-hidden="true"
+        className="
+          absolute inset-0 -z-20
+          bg-gradient-to-t
 
-    from-[#faf8f2]/10
-    from-0%
-    via-transparent
-    via-20%
-    to-transparent
+          from-[#faf8f2]/10
+          from-0%
+          via-transparent
+          via-20%
+          to-transparent
 
-    dark:from-background/90
-    dark:via-background/5
-    dark:to-background/35
-  "
-/>
+          dark:from-background/90
+          dark:via-background/5
+          dark:to-background/35
+        "
+      />
 
-{/* Tiny contrast adjustment — dark mode only */}
-<div
-  aria-hidden="true"
-  className="
-    absolute inset-0 -z-20
-    bg-transparent
-    dark:bg-black/10
-  "
-/>
+      {/* =========================
+          Dark Mode Contrast
+      ========================= */}
 
-      {/* Soft gold glow */}
+      <div
+        aria-hidden="true"
+        className="
+          absolute inset-0 -z-20
+          bg-transparent
+          dark:bg-black/10
+        "
+      />
+
+      {/* =========================
+          Gold Glow
+      ========================= */}
+
       <div
         aria-hidden="true"
         className="
           absolute -bottom-32 start-[15%] -z-10
-          h-[26rem] w-[26rem]
+
+          h-[26rem]
+          w-[26rem]
+
           rounded-full
+
           bg-gold/[0.04]
           blur-[110px]
 
@@ -120,12 +143,16 @@ export function Hero() {
         "
       />
 
-      {/* Fine top line */}
+      {/* =========================
+          Top Gold Line
+      ========================= */}
+
       <div
         aria-hidden="true"
         className="
           absolute inset-x-0 top-0 -z-10
           h-px
+
           bg-gradient-to-r
           from-transparent
           via-gold/30
@@ -133,16 +160,21 @@ export function Hero() {
         "
       />
 
-      {/* Content */}
+      {/* =========================
+          Main Content
+      ========================= */}
+
       <div
         className="
           relative
           mx-auto
+
           flex
           min-h-[760px]
           w-full
           max-w-7xl
           items-center
+
           px-4
           pb-16
           pt-24
@@ -155,14 +187,21 @@ export function Hero() {
         "
       >
         <div className="max-w-3xl">
-          {/* Badge */}
+
+          {/* =========================
+              Badge
+          ========================= */}
+
           <div
             className="
               animate-fade-in
+
               mb-6
+
               inline-flex
               items-center
               gap-2
+
               rounded-full
 
               border
@@ -193,7 +232,9 @@ export function Hero() {
                   inline-flex
                   h-full
                   w-full
+
                   animate-ping
+
                   rounded-full
                   bg-gold/40
                 "
@@ -203,27 +244,37 @@ export function Hero() {
                 className="
                   relative
                   inline-flex
+
                   h-2
                   w-2
+
                   rounded-full
                   bg-gold
                 "
               />
             </span>
 
-            {t.hero.badge}
+            {lang === "ar"
+              ? "معرض القلعه للسيارات | قطر"
+              : "ALQALAA CAR SHOWROOM | QATAR"}
           </div>
 
-          {/* Heading */}
+          {/* =========================
+              Heading
+          ========================= */}
+
           <h1
             className="
               animate-fade-in
+
               max-w-3xl
 
               text-4xl
               font-black
+
               leading-[1.08]
               tracking-[-0.035em]
+
               text-foreground
 
               sm:text-5xl
@@ -231,14 +282,21 @@ export function Hero() {
               lg:text-7xl
             "
           >
-            {t.hero.titleLine1}
+            {lang === "ar"
+              ? "سيارتك القادمة"
+              : "Your Next Car"}
 
             <span className="mt-1 block gold-text">
-              {t.hero.titleLine2}
+              {lang === "ar"
+                ? "تبدأ من القلعه"
+                : "Starts at Al Qalaa"}
             </span>
           </h1>
 
-          {/* Description */}
+          {/* =========================
+              Description
+          ========================= */}
+
           <p
             className="
               mt-6
@@ -246,19 +304,26 @@ export function Hero() {
 
               text-base
               leading-8
+
               text-foreground/90
 
               sm:text-lg
               lg:text-xl
             "
           >
-            {t.hero.desc}
+            {lang === "ar"
+              ? "تشكيلة مختارة من السيارات الجديدة والمستعملة في قطر. استعرض السيارات وتواصل معنا مباشرة لمعرفة السعر والتوفر."
+              : "A selected range of new and used cars in Qatar. Browse available cars and contact us directly for pricing and availability."}
           </p>
 
-          {/* Actions */}
+          {/* =========================
+              Buttons
+          ========================= */}
+
           <div
             className="
               mt-8
+
               flex
               flex-col
               gap-3
@@ -267,7 +332,11 @@ export function Hero() {
               sm:flex-wrap
             "
           >
-            {/* Browse cars */}
+
+            {/* =========================
+                Browse Cars
+            ========================= */}
+
             <Link
               to="/"
               hash="cars"
@@ -276,11 +345,13 @@ export function Hero() {
 
                 inline-flex
                 min-h-12
+
                 items-center
                 justify-center
                 gap-2
 
                 rounded-md
+
                 bg-gold
 
                 px-7
@@ -288,6 +359,7 @@ export function Hero() {
 
                 text-sm
                 font-bold
+
                 text-white
                 dark:text-background
 
@@ -298,6 +370,7 @@ export function Hero() {
 
                 hover:-translate-y-0.5
                 hover:bg-gold-soft
+
                 hover:shadow-[0_18px_50px_rgba(198,161,91,0.28)]
 
                 focus-visible:outline-none
@@ -313,6 +386,7 @@ export function Hero() {
                 className="
                   h-4
                   w-4
+
                   transition-transform
                   duration-200
 
@@ -322,117 +396,120 @@ export function Hero() {
               />
             </Link>
 
-            {/* WhatsApp / Phone */}
-            {dealership.whatsappEnabled ? (
-              <a
-                href={waLink(t.cta.message)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  inline-flex
-                  min-h-12
-                  items-center
-                  justify-center
-                  gap-2
+            {/* =========================
+                WhatsApp
+            ========================= */}
 
-                  rounded-md
+            <a
+              href={waLink(
+                lang === "ar"
+                  ? "مرحباً، أود الاستفسار عن السيارات المتوفرة لدى معرض القلعه للسيارات."
+                  : "Hello, I would like to ask about the available cars at ALQALAA CAR SHOWROOM."
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex
+                min-h-12
 
-                  border
-                  border-black/10
-                  dark:border-white/15
+                items-center
+                justify-center
+                gap-2
 
-                  bg-white/65
-                  dark:bg-background/35
+                rounded-md
 
-                  px-7
-                  py-3
+                border
+                border-black/10
+                dark:border-white/15
 
-                  text-sm
-                  font-semibold
-                  text-foreground
+                bg-white/65
+                dark:bg-background/35
 
-                  shadow-[0_12px_40px_rgba(0,0,0,0.08)]
-                  dark:shadow-[0_12px_40px_rgba(0,0,0,0.16)]
+                px-7
+                py-3
 
-                  backdrop-blur-xl
+                text-sm
+                font-semibold
+                text-foreground
 
-                  transition-all
-                  duration-200
+                shadow-[0_12px_40px_rgba(0,0,0,0.08)]
+                dark:shadow-[0_12px_40px_rgba(0,0,0,0.16)]
 
-                  hover:-translate-y-0.5
-                  hover:border-gold/50
-                  hover:bg-white/85
-                  dark:hover:bg-background/55
-                  hover:text-gold
+                backdrop-blur-xl
 
-                  focus-visible:outline-none
-                  focus-visible:ring-2
-                  focus-visible:ring-gold
-                  focus-visible:ring-offset-2
-                  focus-visible:ring-offset-background
-                "
-              >
-                <MessageCircle className="h-4 w-4" />
+                transition-all
+                duration-200
 
-                {t.common.whatsapp}
-              </a>
-            ) : (
-              <a
-                href={telHref}
-                className="
-                  inline-flex
-                  min-h-12
-                  items-center
-                  justify-center
-                  gap-2
+                hover:-translate-y-0.5
+                hover:border-gold/50
+                hover:bg-white/85
 
-                  rounded-md
+                dark:hover:bg-background/55
 
-                  border
-                  border-black/10
-                  dark:border-white/15
+                hover:text-gold
 
-                  bg-white/65
-                  dark:bg-background/35
+                focus-visible:outline-none
+                focus-visible:ring-2
+                focus-visible:ring-gold
+                focus-visible:ring-offset-2
+                focus-visible:ring-offset-background
+              "
+            >
+              <MessageCircle className="h-4 w-4" />
 
-                  px-7
-                  py-3
+              {t.common.whatsapp}
+            </a>
 
-                  text-sm
-                  font-semibold
-                  text-foreground
+            {/* =========================
+                Phone
+            ========================= */}
 
-                  shadow-[0_12px_40px_rgba(0,0,0,0.08)]
-                  dark:shadow-[0_12px_40px_rgba(0,0,0,0.16)]
+            <a
+              href={telHref}
+              className="
+                inline-flex
+                min-h-12
 
-                  backdrop-blur-xl
+                items-center
+                justify-center
+                gap-2
 
-                  transition-all
-                  duration-200
+                rounded-md
 
-                  hover:-translate-y-0.5
-                  hover:border-gold/50
-                  hover:bg-white/85
-                  dark:hover:bg-background/55
-                  hover:text-gold
+                border
+                border-black/10
+                dark:border-white/15
 
-                  focus-visible:outline-none
-                  focus-visible:ring-2
-                  focus-visible:ring-gold
-                  focus-visible:ring-offset-2
-                  focus-visible:ring-offset-background
-                "
-              >
-                <Phone className="h-4 w-4" />
+                bg-white/65
+                dark:bg-background/35
 
-                {t.common.call}
-              </a>
-            )}
+                px-7
+                py-3
+
+                text-sm
+                font-semibold
+                text-foreground
+
+                transition-all
+                duration-200
+
+                hover:-translate-y-0.5
+                hover:border-gold/50
+                hover:text-gold
+              "
+            >
+              <Phone className="h-4 w-4" />
+
+              {showroom.phone}
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* =========================
+          Scroll Indicator
+      ========================= */}
+
       <div
         aria-hidden="true"
         className="
@@ -442,28 +519,36 @@ export function Hero() {
 
           hidden
           -translate-x-1/2
+
           flex-col
           items-center
           gap-2
 
           text-[10px]
           uppercase
+
           tracking-[0.28em]
+
           text-foreground/40
 
           lg:flex
         "
       >
         <span>
-          {lang === "ar" ? "اكتشف" : "Explore"}
+          {lang === "ar"
+            ? "اكتشف"
+            : "Explore"}
         </span>
 
         <span
           className="
             relative
+
             h-10
             w-px
+
             overflow-hidden
+
             bg-black/10
             dark:bg-white/15
           "
@@ -473,8 +558,11 @@ export function Hero() {
               absolute
               inset-x-0
               top-0
+
               h-4
+
               animate-bounce
+
               bg-gold/80
             "
           />

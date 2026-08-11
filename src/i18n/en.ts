@@ -29,36 +29,68 @@ export const en: Dictionary = {
     required: "This field is required",
     invalidEmail: "Please enter a valid email",
     invalidPhone: "Please enter a valid phone number",
-    riyal: "SAR",
+    riyal: "QAR",
     contactUs: "Contact us",
   },
 
   hero: {
-  badge: "Warid Al Tamayoz Motors",
-  titleLine1: "Your next car",
-  titleLine2: "starts here",
-  desc: "Explore a diverse selection of new vehicles with recent model years and Saudi or GCC specifications, and contact us directly for pricing and availability.",
-  browse: "Browse inventory",
-  contact: "Contact us",
-  imageAlt: "Warid Al Tamayoz Motors",
-  stats: {
-    carsSold: "Cars delivered",
-    years: "Years in business",
-    customers: "Happy customers",
-    brands: "Brands offered",
+    badge: "ALQALAA CAR SHOWROOM",
+
+    titleLine1: "Your next car",
+    titleLine2: "starts here",
+
+    desc:
+      "Explore a diverse selection of vehicles available at ALQALAA CAR SHOWROOM in Qatar, and contact us directly for pricing, specifications, and availability.",
+
+    browse: "Browse inventory",
+    contact: "Contact us",
+
+    imageAlt: "ALQALAA CAR SHOWROOM",
+
+    stats: {
+      carsSold: "Cars delivered",
+      years: "Years in business",
+      customers: "Happy customers",
+      brands: "Brands offered",
+    },
   },
-},
 
   cars: {
-    eyebrow: "Featured inventory",
-    title: "A diverse selection of vehicles",
-desc: "Browse our latest new vehicles from leading automotive brands.",
-    noResults: "No vehicles match your search. Try adjusting the filters.",
+    eyebrow: "Our vehicles",
+
+    title: "Explore available vehicles",
+
+    desc:
+      "Browse the vehicles currently available at ALQALAA CAR SHOWROOM and find the option that suits you.",
+
+    noResults:
+      "No vehicles match your search. Try adjusting the filters.",
+
     resultsCount: "vehicles available",
-    condition: { new: "New", used: "Pre-owned" },
-    transmission: { automatic: "Automatic", manual: "Manual" },
-    fuel: { petrol: "Gasoline", diesel: "Diesel", hybrid: "Hybrid", electric: "Electric" },
-    bodyType: { sedan: "Sedan", suv: "SUV", coupe: "Coupe" },
+
+    condition: {
+      new: "New",
+      used: "Pre-owned",
+    },
+
+    transmission: {
+      automatic: "Automatic",
+      manual: "Manual",
+    },
+
+    fuel: {
+      petrol: "Gasoline",
+      diesel: "Diesel",
+      hybrid: "Hybrid",
+      electric: "Electric",
+    },
+
+    bodyType: {
+      sedan: "Sedan",
+      suv: "SUV",
+      coupe: "Coupe",
+    },
+
     specs: {
       year: "Year",
       mileage: "Mileage",
@@ -70,16 +102,22 @@ desc: "Browse our latest new vehicles from leading automotive brands.",
   },
 
   filters: {
-    eyebrow: "Smart search",
-    title: "Find your perfect vehicle",
-    desc: "Use the filters below to find the vehicle that fits your needs and budget.",
+    eyebrow: "Easy search",
+
+    title: "Find your vehicle",
+
+    desc:
+      "Use the filters below to quickly find a vehicle that matches your needs and budget.",
+
     brand: "Make",
     model: "Body type",
     year: "Year",
     price: "Price range",
     condition: "Condition",
+
     search: "Search",
     reset: "Reset",
+
     priceRanges: {
       under100: "Under 100,000",
       r100to200: "100,000 - 200,000",
@@ -89,118 +127,178 @@ desc: "Browse our latest new vehicles from leading automotive brands.",
   },
 
   whyUs: {
-  eyebrow: "Why Warid Al Tamayoz",
-  title: "More choice, easier buying",
-  desc: "We offer a diverse selection of new vehicles across different brands and specifications to help you find the right option.",
-  items: [
-    {
-      title: "Wide vehicle selection",
-      desc: "Multiple brands and vehicle categories to suit different needs.",
-    },
-    {
-      title: "Brand-new vehicles",
-      desc: "A selection of new vehicles with recent model years and zero mileage.",
-    },
-    {
-      title: "Saudi & GCC specifications",
-      desc: "Options with Saudi and GCC specifications depending on availability.",
-    },
-    {
-      title: "Direct and fast contact",
-      desc: "Contact us directly for vehicle details, pricing, and availability.",
-    },
-  ],
-},
+    eyebrow: "Why Al Qalaa",
+
+    title: "More options, easier search",
+
+    desc:
+      "We make it easier to explore available vehicles and review their key details before contacting the showroom.",
+
+    items: [
+      {
+        title: "Diverse vehicle selection",
+        desc:
+          "Explore multiple vehicle options and brands to suit different needs.",
+      },
+      {
+        title: "Clear vehicle information",
+        desc:
+          "Review the key details and specifications of each listed vehicle.",
+      },
+      {
+        title: "Simple and fast search",
+        desc:
+          "Use filters to quickly find vehicles that match your preferences.",
+      },
+      {
+        title: "Direct contact",
+        desc:
+          "Contact the showroom directly through WhatsApp for pricing and availability.",
+      },
+    ],
+  },
 
   services: {
-  eyebrow: "Our services",
-  title: "Services designed for your convenience",
-  desc: "A smoother buying experience from choosing your vehicle to receiving it wherever you are in Saudi Arabia.",
-  items: [
-    {
-      title: "Shipping across Saudi Arabia",
-      desc: "Vehicle shipping is available to different regions of the Kingdom with special rates and discounts.",
-    },
-    {
-      title: "Fast processing and delivery",
-      desc: "We aim to complete the procedures and deliver your vehicle as quickly as possible.",
-    },
-    {
-      title: "Competitive pricing",
-      desc: "A diverse selection of vehicles offered at competitive prices across the Saudi market.",
-    },
-    {
-      title: "Post-purchase benefits",
-      desc: "Vehicle purchases include a SUN GARD service voucher covering thermal insulation, washing, waxing, and interior protection.",
-    },
-  ],
-},
+    eyebrow: "Our services",
+
+    title: "Services that make your search easier",
+
+    desc:
+      "We make it easier to browse vehicles, ask questions, and contact the showroom about current availability.",
+
+    items: [
+      {
+        title: "Vehicle sales",
+        desc:
+          "Browse available vehicles and choose the option that fits your needs.",
+      },
+      {
+        title: "Vehicle inquiries",
+        desc:
+          "Contact us to ask about pricing, specifications, and availability.",
+      },
+      {
+        title: "Help choosing a vehicle",
+        desc:
+          "Get in touch with us if you need help finding a suitable option.",
+      },
+      {
+        title: "Direct WhatsApp contact",
+        desc:
+          "Reach the showroom directly through WhatsApp for fast inquiries.",
+      },
+    ],
+  },
 
   about: {
-  eyebrow: "About us",
-  titlePrefix: "Warid Al Tamayoz",
-  titleSuffix: "Motors",
-  titleFallback: "Warid Al Tamayoz Motors",
-  yearsWord: "years",
-  p1: "Warid Al Tamayoz Motors is a Riyadh-based car dealership offering a diverse selection of new vehicles across different models and categories.",
-  p2: "We provide multiple Saudi and GCC specification options to help customers find a vehicle that suits their needs.",
-  p3: "Browse the available vehicles and contact us directly for pricing, specifications, and availability.",
-  imageAlt: "Warid Al Tamayoz Motors showroom",
-  badgeLabel: "Wide selection",
-},
+    eyebrow: "About us",
+
+    titlePrefix: "Al Qalaa",
+    titleSuffix: "Car Showroom",
+
+    titleFallback: "ALQALAA CAR SHOWROOM",
+
+    yearsWord: "years",
+
+    p1:
+      "ALQALAA CAR SHOWROOM is a car showroom in Qatar offering a variety of vehicles for customers to explore.",
+
+    p2:
+      "We aim to make the vehicle search process easier by presenting the key details and specifications of each available vehicle clearly.",
+
+    p3:
+      "Browse the available vehicles and contact us directly for pricing, specifications, and availability.",
+
+    imageAlt: "ALQALAA CAR SHOWROOM",
+
+    badgeLabel: "Multiple options",
+  },
 
   testimonials: {
     eyebrow: "Customer feedback",
     title: "What our customers say",
-    desc: "Example testimonials shown for demonstration — replace them with real reviews.",
-    sampleNotice: "These testimonials are sample content for demonstration only and should be replaced with verified reviews before launch.",
-    items: [
-      { name: "Ahmed Al-Shammari", role: "Customer — Riyadh", text: "A smooth experience from start to finish, with a helpful and transparent team." },
-      { name: "Khalid Al-Otaibi", role: "Customer — Jeddah", text: "The car matched the description exactly, and the pre-sale inspection gave me confidence." },
-      { name: "Saud Al-Qahtani", role: "Customer — Dammam", text: "Excellent follow-up after the purchase and quick help when I needed it. Recommended." },
-    ],
+
+    desc:
+      "Verified customer reviews can be added here.",
+
+    sampleNotice:
+      "This section is reserved for verified customer reviews.",
+
+    items: [],
   },
 
   cta: {
-    titlePrefix: "Not sure which",
-    titleHighlight: "car to pick?",
-    desc: "Get in touch and we'll help you find the vehicle that fits your needs and budget.",
-    message: "Hello, I'd like help choosing a car.",
+    titlePrefix: "Looking for",
+    titleHighlight: "your next car?",
+
+    desc:
+      "Contact us directly and we'll help you check the available vehicles that match your needs.",
+
+    message:
+      "Hello, I'd like to ask about the vehicles currently available at ALQALAA CAR SHOWROOM.",
   },
 
   contact: {
     eyebrow: "Contact",
+
     title: "We're here to help",
-    desc: "Our team is ready to answer your questions and help you choose your next vehicle.",
+
+    desc:
+      "Contact ALQALAA CAR SHOWROOM for vehicle inquiries, pricing, and availability.",
+
     phone: "Phone",
     address: "Address",
     hours: "Opening hours",
-    mapTitle: "Location map",
-    tabs: { general: "General inquiry", finance: "Financing request", tradeIn: "Trade-in appraisal" },
+    mapTitle: "Showroom location",
+
+    tabs: {
+      general: "General inquiry",
+      finance: "Financing request",
+      tradeIn: "Trade-in appraisal",
+    },
+
     fields: {
       name: "Name",
       namePlaceholder: "Your full name",
+
       phone: "Phone number",
-      phonePlaceholder: "(555) 000-0000",
+      phonePlaceholder: "Your phone number",
+
       email: "Email",
       emailPlaceholder: "you@example.com",
+
       car: "Vehicle of interest",
-      carPlaceholder: "e.g. Mercedes-Benz C-Class 2024",
+      carPlaceholder: "e.g. Toyota Land Cruiser 2025",
+
       message: "Your message",
       messagePlaceholder: "Write your question here...",
+
       downPayment: "Down payment",
-      downPaymentPlaceholder: "e.g. 5,000",
+      downPaymentPlaceholder: "Enter down payment amount",
+
       monthlyBudget: "Monthly budget",
-      monthlyBudgetPlaceholder: "e.g. 600",
+      monthlyBudgetPlaceholder: "Enter your monthly budget",
+
       tradeInCar: "Your current vehicle",
       tradeInCarPlaceholder: "Make, model and year",
+
       tradeInMileage: "Current mileage",
-      tradeInMileagePlaceholder: "e.g. 60,000",
+      tradeInMileagePlaceholder: "Enter current mileage",
+
       preferredDate: "Preferred date",
     },
-    submit: { general: "Send message", finance: "Submit financing request", tradeIn: "Request appraisal" },
-    success: "Thanks! We're opening your messaging app to complete the request.",
-    successEmail: "Your email app has been opened to send the request.",
+
+    submit: {
+      general: "Send inquiry",
+      finance: "Submit financing request",
+      tradeIn: "Request appraisal",
+    },
+
+    success:
+      "Your request has been received. You'll be redirected to complete the contact.",
+
+    successEmail:
+      "Your email app has been opened to send the request.",
   },
 
   vehicle: {
@@ -208,25 +306,45 @@ desc: "Browse our latest new vehicles from leading automotive brands.",
     overview: "Vehicle overview",
     features: "Key features",
     similar: "Similar vehicles",
-    inquire: "Inquire now",
-    testDrive: "Book a test drive",
-    testDriveDesc: "Fill in the form and we'll contact you to confirm the appointment.",
-    inquiryMessage: (car: string) => `Hello, I'd like more information about the ${car}.`,
-    testDriveMessage: (car: string) => `Hello, I'd like to book a test drive for the ${car}.`,
+
+    inquire: "Inquire on WhatsApp",
+
+    testDrive: "Request a test drive",
+
+    testDriveDesc:
+      "Send your request and we'll contact you regarding test-drive availability.",
+
+    inquiryMessage: (car: string) =>
+      `Hello, I'd like more information about the ${car} at ALQALAA CAR SHOWROOM.`,
+
+    testDriveMessage: (car: string) =>
+      `Hello, I'd like to ask about test-drive availability for the ${car}.`,
+
     notFound: "Vehicle not available",
-    notFoundDesc: "This vehicle may have been sold or the link has changed.",
+
+    notFoundDesc:
+      "This vehicle may have been sold or the link may have changed.",
+
     gallery: "Photo gallery",
   },
 
   footer: {
-    desc: "Your trusted destination for premium vehicles. Quality and service you can count on.",
+    desc:
+      "ALQALAA CAR SHOWROOM in Qatar. Browse available vehicles and contact us directly for pricing, specifications, and availability.",
+
     contact: "Contact",
+
     rights: "All rights reserved.",
-    disclaimer: "Photos and specifications are for illustration and may differ from the actual vehicle.",
+
+    disclaimer:
+      "Prices, specifications, and availability may change. Please contact the showroom for confirmation.",
   },
 
- seo: {
-  homeTitle: (name: string) => `${name} | Car Dealership in Riyadh`,
-  homeDesc: "Browse new vehicles with Saudi and GCC specifications and contact Warid Al Tamayoz Motors directly for pricing and availability.",
-},
+  seo: {
+    homeTitle: (name: string) =>
+      `${name} | Car Showroom in Qatar`,
+
+    homeDesc:
+      "Browse vehicles available at ALQALAA CAR SHOWROOM in Qatar and contact the showroom directly for pricing, specifications, and availability.",
+  },
 };

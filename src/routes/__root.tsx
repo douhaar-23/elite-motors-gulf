@@ -177,13 +177,13 @@ export const Route =
 
         {
           title:
-            "معرض وارد التميز للسيارات | Warid Al Tamayoz",
+            "معرض القلعه للسيارات | ALQALAA CAR SHOWROOM",
         },
 
         {
           name: "description",
           content:
-            "معرض السيارات الفاخرة في المملكة العربية السعودية.",
+            "معرض القلعه للسيارات في قطر. تصفح السيارات المتوفرة وتواصل مباشرة للاستفسار عن الأسعار والمواصفات والتوفر.",
         },
 
         {
@@ -233,6 +233,8 @@ export const Route =
     notFoundComponent: NotFoundComponent,
     errorComponent: ErrorComponent,
   });
+
+    
 
 
 /* =========================================================

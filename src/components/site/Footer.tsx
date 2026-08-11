@@ -215,7 +215,7 @@ export function Footer() {
 
             <ul className="mt-5 space-y-4 text-sm text-muted-foreground">
               {/* Phone */}
-             {/* Contact Person + Phone */}
+            {/* Phone */}
 <li>
   <a
     href={telHref}
@@ -227,7 +227,7 @@ export function Footer() {
 
     <div>
       <p className="font-bold text-foreground">
-        أحمد جمال
+        {lang === "ar" ? "معرض القلعة للسيارات" : "ALQALAA CAR SHOWROOM"}
       </p>
 
       <p className="mt-1" dir="ltr">

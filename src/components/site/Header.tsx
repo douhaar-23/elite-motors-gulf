@@ -60,9 +60,9 @@ export function Header() {
   ========================= */
 
   useEffect(() => {
-  document.documentElement.classList.remove("dark");
-  localStorage.setItem("theme", "light");
-  setDarkMode(false);
+  document.documentElement.classList.add("dark");
+  localStorage.setItem("theme", "dark");
+  setDarkMode(true);
 }, []);
 
   const toggleTheme = () => {
@@ -123,20 +123,20 @@ export function Header() {
   </Link>
 
   <div className="mt-1.5 flex items-center gap-2 text-xs font-semibold">
-    <span className="text-gold">
-      أحمد جمال
-    </span>
+  <span className="text-gold">
+    معرض القلعه للسيارات
+  </span>
 
-    <span className="text-gold/70">•</span>
+  <span className="text-gold/70">•</span>
 
-    <a
-      href={telHref}
-      dir="ltr"
-      className="text-foreground/70 transition-colors hover:text-gold"
-    >
-      +966 57 477 7773
-    </a>
-  </div>
+  <a
+    href="tel:+97455854080"
+    dir="ltr"
+    className="text-foreground/70 transition-colors hover:text-gold"
+  >
+    +974 5585 4080
+  </a>
+</div>
 </div>
 </div>
     {/* =========================
@@ -400,15 +400,15 @@ export function Header() {
             >
               <div className="mb-2 rounded-lg border border-border bg-surface/70 p-3">
   <div className="text-sm font-bold text-foreground">
-    أحمد جمال
+    معرض القلعه للسيارات
   </div>
 
   <a
-    href={telHref}
+    href="tel:+97455854080"
     dir="ltr"
     className="mt-1 block text-xs text-muted-foreground transition-colors hover:text-gold"
   >
-    +966 57 477 7773
+    +974 5585 4080
   </a>
 </div>
               {links.map((l) => (

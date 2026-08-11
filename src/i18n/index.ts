@@ -1,20 +1,32 @@
-import { createContext, createElement, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import {
+  createContext,
+  createElement,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
+
 import { ar, type Dictionary } from "./ar";
 import { en } from "./en";
+
 import {
   dealership,
   formatMileage,
   formatNumber,
   formatPrice,
-  type Language,
 } from "@/config/dealership";
+
+import type { Language } from "@/config/types";
 
 export type { Dictionary };
 export type { Language };
 
 export const dictionaries: Record<Language, Dictionary> = { ar, en };
 
-export const STORAGE_KEY = "elite-motors:lang";
+export const STORAGE_KEY = "dealership:lang";
 
 export const availableLanguages: Language[] = dealership.bilingual ? ["ar", "en"] : ["en"];
 
@@ -85,6 +97,10 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
 export function useI18n(): I18nContextValue {
   const ctx = useContext(I18nContext);
-  if (!ctx) throw new Error("useI18n must be used inside <I18nProvider>");
+
+  if (!ctx) {
+    throw new Error("useI18n must be used inside I18nProvider");
+  }
+
   return ctx;
 }

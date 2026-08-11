@@ -4,8 +4,8 @@
  * and `src/data/vehicles.ts`.
  */
 
-
 import { showroom } from "./showroom";
+
 import type {
   Country,
   Language,
@@ -14,44 +14,52 @@ import type {
 } from "./types";
 
 export type DealershipConfig = {
-  /** "SA" enables Arabic + RTL + SAR + km. "US" is English-only + USD + miles. */
   country: Country;
   currency: Currency;
   distanceUnit: DistanceUnit;
-  /** Language shown on first visit (before localStorage preference). */
+
+  /** Language shown on first visit. */
   defaultLanguage: Language;
-  /** Set false for US dealerships to hide the AR/EN switcher. */
+
   bilingual: boolean;
 
   name: string;
   nameEn: string;
+
   tagline: string;
   taglineEn: string;
+
   logoLetter: string;
 
   phone: string;
-  /** Digits only, international format, no "+" — used for wa.me links. */
+
+  /** Digits only — used for wa.me links. */
   whatsapp: string;
-  /** Set false for US dealerships that prefer SMS/call over WhatsApp. */
+
   whatsappEnabled: boolean;
   smsEnabled: boolean;
+
   email: string;
 
   address: string;
   addressEn: string;
+
   hours: string;
   hoursEn: string;
+
   hoursSecondary: string;
   hoursSecondaryEn: string;
+
   mapsUrl: string;
   mapsEmbedQuery: string;
 
-  social: { facebook: string; instagram: string; twitter: string; youtube: string };
+  social: {
+    facebook: string;
+    instagram: string;
+    twitter: string;
+    youtube: string;
+  };
 
-  /**
-   * Editable marketing figures. Leave any value as an empty string to hide
-   * that stat entirely — do NOT publish numbers you cannot verify.
-   */
   stats: {
     yearsExperience: string;
     carsSold: string;
@@ -59,22 +67,25 @@ export type DealershipConfig = {
     brands: string;
   };
 
-  /** Show the "sample content" notice above testimonials until real ones exist. */
   testimonialsAreSamples: boolean;
 };
 
+/* =========================================================
+   DEALERSHIP CONFIG
+========================================================= */
+
 export const dealership: DealershipConfig = {
-  country: showroom.country,
+ country: "QA",
 
-currency: showroom.country === "US" ? "USD" : "SAR",
+currency: "QAR",
 
-distanceUnit: showroom.country === "US" ? "mi" : "km",
+distanceUnit: "km",
 
-defaultLanguage: showroom.country === "US" ? "en" : "ar",
+defaultLanguage: "ar",
 
-bilingual: showroom.country !== "US",
+bilingual: true,
 
-   name: showroom.nameAr,
+  name: showroom.nameAr,
   nameEn: showroom.nameEn,
 
   tagline: showroom.taglineAr,
@@ -84,101 +95,202 @@ bilingual: showroom.country !== "US",
 
   phone: showroom.phone,
   whatsapp: showroom.whatsapp,
-  whatsappEnabled: showroom.country !== "US",
-smsEnabled: showroom.country === "US",
+
+  whatsappEnabled: true,
+smsEnabled: false,
   email: showroom.email,
 
   address: showroom.addressAr,
   addressEn: showroom.addressEn,
+
+  /* =========================
+     Qatar Working Hours
+  ========================= */
+
   hours: "السبت - الخميس: 9:00 صباحاً - 10:00 مساءً",
   hoursEn: "Sat – Thu: 9:00 AM – 10:00 PM",
-  hoursSecondary: "الجمعة: 4:00 - 10:00 مساءً",
+
+  hoursSecondary: "الجمعة: 4:00 مساءً - 10:00 مساءً",
   hoursSecondaryEn: "Friday: 4:00 PM – 10:00 PM",
-   mapsUrl: showroom.mapsUrl,
+
+  mapsUrl: showroom.mapsUrl,
   mapsEmbedQuery: showroom.mapsEmbedQuery,
 
-    social: {
+  social: {
     instagram: showroom.instagram,
     facebook: "",
     twitter: "",
     youtube: "",
   },
+
+  /*
+   * نخلي الإحصائيات فارغة مؤقتاً
+   * حتى لا ننشر أرقام غير مؤكدة للمعرض.
+   */
   stats: {
-    yearsExperience: "10",
-    carsSold: "300",
-    happyCustomers: "300",
-    brands: "20",
+    yearsExperience: "",
+    carsSold: "",
+    happyCustomers: "",
+    brands: "",
   },
 
   testimonialsAreSamples: true,
 };
 
-/* ------------------------------------------------------------------ */
-/* Derived helpers                                                     */
-/* ------------------------------------------------------------------ */
+/* =========================================================
+   COUNTRY HELPERS
+========================================================= */
 
-export const isSaudi = dealership.country === "SA";
-export const isUSA = dealership.country === "US";
+export const isSaudi = false;
+export const isQatar = true;
+export const isUSA = false;
+
+/* =========================================================
+   DEALERSHIP HELPERS
+========================================================= */
 
 export const dealershipName = (lang: Language) =>
-  lang === "ar" ? dealership.name : dealership.nameEn;
+  lang === "ar"
+    ? dealership.name
+    : dealership.nameEn;
 
 export const dealershipAddress = (lang: Language) =>
-  lang === "ar" ? dealership.address : dealership.addressEn;
+  lang === "ar"
+    ? dealership.address
+    : dealership.addressEn;
 
 export const dealershipHours = (lang: Language) =>
-  lang === "ar" ? dealership.hours : dealership.hoursEn;
+  lang === "ar"
+    ? dealership.hours
+    : dealership.hoursEn;
 
 export const dealershipHoursSecondary = (lang: Language) =>
-  lang === "ar" ? dealership.hoursSecondary : dealership.hoursSecondaryEn;
+  lang === "ar"
+    ? dealership.hoursSecondary
+    : dealership.hoursSecondaryEn;
 
-export const telHref = `tel:${dealership.phone.replace(/[^\d+]/g, "")}`;
+/* =========================================================
+   CONTACT LINKS
+========================================================= */
+
+export const telHref =
+  `tel:${dealership.phone.replace(/[^\d+]/g, "")}`;
+
 export const smsHref = (body?: string) =>
-  `sms:${dealership.phone.replace(/[^\d+]/g, "")}${body ? `?&body=${encodeURIComponent(body)}` : ""}`;
-export const mailHref = (subject?: string, body?: string) => {
+  `sms:${dealership.phone.replace(/[^\d+]/g, "")}${
+    body
+      ? `?&body=${encodeURIComponent(body)}`
+      : ""
+  }`;
+
+export const mailHref = (
+  subject?: string,
+  body?: string,
+) => {
   const params = new URLSearchParams();
-  if (subject) params.set("subject", subject);
-  if (body) params.set("body", body);
+
+  if (subject) {
+    params.set("subject", subject);
+  }
+
+  if (body) {
+    params.set("body", body);
+  }
+
   const qs = params.toString();
-  return `mailto:${dealership.email}${qs ? `?${qs}` : ""}`;
+
+  return `mailto:${dealership.email}${
+    qs ? `?${qs}` : ""
+  }`;
 };
 
 export const waLink = (message: string) =>
-  `https://wa.me/${dealership.whatsapp}?text=${encodeURIComponent(message)}`;
+  `https://wa.me/${dealership.whatsapp}?text=${encodeURIComponent(
+    message,
+  )}`;
+
+export const leadHref = (
+  subject: string,
+  message: string,
+) =>
+  dealership.whatsappEnabled
+    ? waLink(message)
+    : mailHref(subject, message);
+
+/* =========================================================
+   FORMATTERS
+========================================================= */
+
+const localeFor = (lang: Language) => {
+  if (dealership.country === "QA") {
+    return lang === "ar"
+      ? "ar-QA"
+      : "en-QA";
+  }
+
+  if (dealership.country === "SA") {
+    return lang === "ar"
+      ? "ar-SA"
+      : "en-SA";
+  }
+
+  return "en-US";
+};
 
 /**
- * Best available contact channel for a lead, based on config.
- * Falls back to email when WhatsApp is disabled (typical for US dealers).
+ * Formats a price using the dealership currency.
  */
-export const leadHref = (subject: string, message: string) =>
-  dealership.whatsappEnabled ? waLink(message) : mailHref(subject, message);
-
-/* ------------------------------------------------------------------ */
-/* Formatters                                                          */
-/* ------------------------------------------------------------------ */
-
-const localeFor = (lang: Language) => (lang === "ar" ? "ar-SA" : "en-US");
-
-/** Formats a price in the configured currency (SAR or USD). */
-export function formatPrice(value: number, lang: Language = dealership.defaultLanguage) {
-  return new Intl.NumberFormat(localeFor(lang), {
-    style: "currency",
-    currency: dealership.currency,
-    maximumFractionDigits: 0,
-  }).format(value);
+export function formatPrice(
+  value: number,
+  lang: Language = dealership.defaultLanguage,
+) {
+  return new Intl.NumberFormat(
+    localeFor(lang),
+    {
+      style: "currency",
+      currency: dealership.currency,
+      maximumFractionDigits: 0,
+    },
+  ).format(value);
 }
 
-/** Formats a plain number using the active locale digits. */
-export function formatNumber(value: number, lang: Language = dealership.defaultLanguage) {
-  return new Intl.NumberFormat(localeFor(lang)).format(value);
+/**
+ * Formats a plain number.
+ */
+export function formatNumber(
+  value: number,
+  lang: Language = dealership.defaultLanguage,
+) {
+  return new Intl.NumberFormat(
+    localeFor(lang),
+  ).format(value);
 }
 
-export const kmToMiles = (km: number) => Math.round(km * 0.621371);
+export const kmToMiles = (km: number) =>
+  Math.round(km * 0.621371);
 
-/** Mileage is always stored in km; converted to miles when configured. */
-export function formatMileage(km: number, lang: Language = dealership.defaultLanguage) {
-  const isMiles = dealership.distanceUnit === "mi";
-  const value = isMiles ? kmToMiles(km) : km;
-  const unit = isMiles ? (lang === "ar" ? "ميل" : "mi") : lang === "ar" ? "كم" : "km";
+/**
+ * Mileage is stored in km.
+ * Converted to miles only for US dealerships.
+ */
+export function formatMileage(
+  km: number,
+  lang: Language = dealership.defaultLanguage,
+) {
+  const isMiles =
+    dealership.distanceUnit === "mi";
+
+  const value = isMiles
+    ? kmToMiles(km)
+    : km;
+
+  const unit = isMiles
+    ? lang === "ar"
+      ? "ميل"
+      : "mi"
+    : lang === "ar"
+      ? "كم"
+      : "km";
+
   return `${formatNumber(value, lang)} ${unit}`;
 }
